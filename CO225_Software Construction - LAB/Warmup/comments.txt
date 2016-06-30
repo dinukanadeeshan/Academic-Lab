@@ -1,0 +1,43 @@
+@Fawzan : I'm carazy. :D
+
+
+Corrupt.c:
+==========
+
+There is no any compile or runtime error. But those variable that declared in program does not used. So there is warning.
+
+Min.c:
+======
+
+Variable currmin is initialized with MAXINT. but it is not defined in any where. So we have to define it using following command.
+	#include <limits.h>
+
+	#define MAXINT INT_MAX
+
+The if condition inside for loop should change as follows 
+	if (Array[i] < currmin)
+
+
+
+Numbers.c:
+==========
+
+In following statement, There is semi-colon used. This is wrong. So we have to remove it.
+	for(x=43; x<12423; x++);
+
+And in printf function there is used single quoto like this
+	printf('x = %d \n', x);
+But there should be used double quoto => printf("x = %d \n", x);
+
+Theta.c:
+========
+
+To use malloc function we have to write include statement => #include <stdlib.h>
+
+in giveMeSomeMemory function the str varible should defined as static to use the memory allocation in other functions.
+	static char * str ;
+
+And also the define statement should remove. (#define NULL 0)
+cause NULL is already defined in stdlib.h
+
+#include <stdlib.h>
