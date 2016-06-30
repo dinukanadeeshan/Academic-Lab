@@ -1,0 +1,23 @@
+01.
+	for firstName => 20 * 1 = 20
+	for lastName => 20 * 1 = 20
+	for regNo => 4
+	for batch => 4
+	for cGPA => 4
+	for pointer => 4
+	for one structure => 20 + 20 + 4 + 4 + 4 +4 = 56
+
+	so memory allocation =  56 * 5 = 280 bytes
+
+02. Memory allocation;	When the programme just run.(inside main function)
+	Memory free; When programme stop running
+
+03. If we want to delete  n th element then n+1 th element was set to n-1 th element's next variable(pointer). 
+	According to my programme any status(like the first or last or a middle element should be deleted) it works.
+
+04. No we cannot have unlimited  student data because of limitation of memory... but in theoritically yes we can.(If we have unlimited memory)
+
+05. Unlike arrays no need to define size of list when declaring.
+	Arrays are random access.. but linked list are not.
+
+06. If we exactly want 1000 of data then preferred way is using array... We know the size of array in first place. So don't need to make stucture using linked list. Deleting adding these operations are easy when there is an arrays...

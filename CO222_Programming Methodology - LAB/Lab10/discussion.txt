@@ -1,0 +1,27 @@
+#1. 
+
+for firstName => 20 * 1 = 20
+for lastName => 20 * 1 = 20
+for regNo => 4
+for batch => 4
+for cGPA => 4
+for one structure => 20 + 20 + 4 + 4 + 4 = 52
+
+so memory allocation =  52 * 1000 = 52000 bytes
+
+#2.
+
+#3.
+
+At first find the index of element that wanted to be deleted.
+Then shift the other elements to left one by one.
+Then automatically the specific element will remove.
+
+#4.
+
+We can't add unlimited amount of student data because, if we declare an array to store the student data then we should give the size of array.
+So there is some limitation for the amount of student data.
+
+#5.
+
+ 
