@@ -1,0 +1,414 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01023800 .scope module, "testbed" "testbed" 2 4;
+ .timescale 0 0;
+v027be8b0_0 .var "CLEAR_BAR", 0 0;
+v027bea68_0 .var "CLK", 0 0;
+v027beac0_0 .net "NUM", 3 0, L_027bf148;  1 drivers
+S_010238d0 .scope module, "mycounter" "rippleCounter4" 2 18, 2 54 0, S_01023800;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 4 "NUM"
+    .port_info 1 /INPUT 1 "CLK"
+    .port_info 2 /INPUT 1 "CLEAR_BAR"
+v027be858_0 .net "CLEAR_BAR", 0 0, v027be8b0_0;  1 drivers
+v027be6f8_0 .net "CLK", 0 0, v027bea68_0;  1 drivers
+v027be6a0_0 .net "NUM", 3 0, L_027bf148;  alias, 1 drivers
+L_027beb70 .part L_027bf148, 0, 1;
+L_027bed80 .part L_027bf148, 1, 1;
+L_027bf148 .concat8 [ 1 1 1 1], L_027bf8c8, L_027bf5b0, L_027bf880, L_027bff88;
+L_027bf358 .part L_027bf148, 2, 1;
+S_0102e180 .scope module, "t_flipflop1" "t_flipflop" 2 58, 2 107 0, S_010238d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "T"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0548 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0277dc30 .functor XOR 1, L_027bf8c8, L_027c0548, C4<0>, C4<0>;
+L_0277db58 .functor NOT 1, v027bea68_0, C4<0>, C4<0>, C4<0>;
+v027ba090_0 .net "CLK", 0 0, v027bea68_0;  alias, 1 drivers
+v027b9e28_0 .net "D", 0 0, L_0277dc30;  1 drivers
+v027b9e80_0 .net "Q", 0 0, L_027bf8c8;  1 drivers
+v027b9b68_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027ba1f0_0 .net "T", 0 0, L_027c0548;  1 drivers
+v027b9bc0_0 .net "_CLK", 0 0, L_0277db58;  1 drivers
+S_0102e250 .scope module, "myDflipflop" "d_flipflop" 2 114, 2 94 0, S_0102e180;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_0277dba0 .functor NOT 1, L_0277db58, C4<0>, C4<0>, C4<0>;
+v0277f018_0 .net "CLK", 0 0, L_0277db58;  alias, 1 drivers
+v0277f7a8_0 .net "D", 0 0, L_0277dc30;  alias, 1 drivers
+v0277f800_0 .net "Q", 0 0, L_027bf8c8;  alias, 1 drivers
+v0277ef68_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027b9b10_0 .net "Y", 0 0, L_0277dd08;  1 drivers
+v027ba038_0 .net "_CLK", 0 0, L_0277dba0;  1 drivers
+S_02783548 .scope module, "master" "d_latch" 2 101, 2 78 0, S_0102e250;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_0277d7f8 .functor NOT 1, L_0277dc30, C4<0>, C4<0>, C4<0>;
+L_0277d840 .functor NAND 1, L_0277dc30, L_0277dba0, C4<1>, C4<1>;
+L_0277dbe8 .functor NAND 1, L_0277d7f8, L_0277dba0, C4<1>, C4<1>;
+v0277f330_0 .net "D", 0 0, L_0277dc30;  alias, 1 drivers
+v0277f8b0_0 .net "En", 0 0, L_0277dba0;  alias, 1 drivers
+v0277ee60_0 .net "Q", 0 0, L_0277dd08;  alias, 1 drivers
+v0277f540_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v0277eeb8_0 .net "_D", 0 0, L_0277d7f8;  1 drivers
+v0277f120_0 .net "s1", 0 0, L_0277d840;  1 drivers
+v0277efc0_0 .net "s2", 0 0, L_0277dbe8;  1 drivers
+S_02783618 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_02783548;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_0277dd08 .functor NAND 1, L_0277d840, L_027bfc28, C4<1>, C4<1>;
+L_027bfc28 .functor NAND 1, L_0277dbe8, L_0277dd08, v027be8b0_0, C4<1>;
+v0277f3e0_0 .net "Q", 0 0, L_0277dd08;  alias, 1 drivers
+v0277f438_0 .net "R", 0 0, L_0277dbe8;  alias, 1 drivers
+v0277f858_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v0277f0c8_0 .net "S", 0 0, L_0277d840;  alias, 1 drivers
+v0277f490_0 .net "_Q", 0 0, L_027bfc28;  1 drivers
+S_0102d638 .scope module, "slave" "d_latch" 2 103, 2 78 0, S_0102e250;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027bfac0 .functor NOT 1, L_0277dd08, C4<0>, C4<0>, C4<0>;
+L_027bf5f8 .functor NAND 1, L_0277dd08, L_0277db58, C4<1>, C4<1>;
+L_027bfb98 .functor NAND 1, L_027bfac0, L_0277db58, C4<1>, C4<1>;
+v0277f2d8_0 .net "D", 0 0, L_0277dd08;  alias, 1 drivers
+v0277f6f8_0 .net "En", 0 0, L_0277db58;  alias, 1 drivers
+v0277f750_0 .net "Q", 0 0, L_027bf8c8;  alias, 1 drivers
+v0277f280_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v0277f1d0_0 .net "_D", 0 0, L_027bfac0;  1 drivers
+v0277ef10_0 .net "s1", 0 0, L_027bf5f8;  1 drivers
+v0277f228_0 .net "s2", 0 0, L_027bfb98;  1 drivers
+S_0102d708 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_0102d638;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf8c8 .functor NAND 1, L_027bf5f8, L_027bf568, C4<1>, C4<1>;
+L_027bf568 .functor NAND 1, L_027bfb98, L_027bf8c8, v027be8b0_0, C4<1>;
+v0277f178_0 .net "Q", 0 0, L_027bf8c8;  alias, 1 drivers
+v0277f5f0_0 .net "R", 0 0, L_027bfb98;  alias, 1 drivers
+v0277f070_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v0277f648_0 .net "S", 0 0, L_027bf5f8;  alias, 1 drivers
+v0277f6a0_0 .net "_Q", 0 0, L_027bf568;  1 drivers
+S_0102bd78 .scope module, "t_flipflop2" "t_flipflop" 2 59, 2 107 0, S_010238d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "T"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0570 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_027bfd90 .functor XOR 1, L_027bf5b0, L_027c0570, C4<0>, C4<0>;
+L_027bfb08 .functor NOT 1, L_027beb70, C4<0>, C4<0>, C4<0>;
+v027ba718_0 .net "CLK", 0 0, L_027beb70;  1 drivers
+v027ba5b8_0 .net "D", 0 0, L_027bfd90;  1 drivers
+v027ba2a0_0 .net "Q", 0 0, L_027bf5b0;  1 drivers
+v027ba350_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027ba610_0 .net "T", 0 0, L_027c0570;  1 drivers
+v027ba3a8_0 .net "_CLK", 0 0, L_027bfb08;  1 drivers
+S_0102be48 .scope module, "myDflipflop" "d_flipflop" 2 114, 2 94 0, S_0102bd78;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027bfd00 .functor NOT 1, L_027bfb08, C4<0>, C4<0>, C4<0>;
+v027ba4b0_0 .net "CLK", 0 0, L_027bfb08;  alias, 1 drivers
+v027ba508_0 .net "D", 0 0, L_027bfd90;  alias, 1 drivers
+v027ba560_0 .net "Q", 0 0, L_027bf5b0;  alias, 1 drivers
+v027ba6c0_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027ba2f8_0 .net "Y", 0 0, L_027bfa78;  1 drivers
+v027ba668_0 .net "_CLK", 0 0, L_027bfd00;  1 drivers
+S_027816d0 .scope module, "master" "d_latch" 2 101, 2 78 0, S_0102be48;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf760 .functor NOT 1, L_027bfd90, C4<0>, C4<0>, C4<0>;
+L_027bfe20 .functor NAND 1, L_027bfd90, L_027bfd00, C4<1>, C4<1>;
+L_027bfd48 .functor NAND 1, L_027bf760, L_027bfd00, C4<1>, C4<1>;
+v027b9958_0 .net "D", 0 0, L_027bfd90;  alias, 1 drivers
+v027b9c70_0 .net "En", 0 0, L_027bfd00;  alias, 1 drivers
+v027b97a0_0 .net "Q", 0 0, L_027bfa78;  alias, 1 drivers
+v027b9ed8_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027b9ab8_0 .net "_D", 0 0, L_027bf760;  1 drivers
+v027b9a08_0 .net "s1", 0 0, L_027bfe20;  1 drivers
+v027b9cc8_0 .net "s2", 0 0, L_027bfd48;  1 drivers
+S_027817a0 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_027816d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bfa78 .functor NAND 1, L_027bfe20, L_027bfc70, C4<1>, C4<1>;
+L_027bfc70 .functor NAND 1, L_027bfd48, L_027bfa78, v027be8b0_0, C4<1>;
+v027ba140_0 .net "Q", 0 0, L_027bfa78;  alias, 1 drivers
+v027ba248_0 .net "R", 0 0, L_027bfd48;  alias, 1 drivers
+v027ba198_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027b9c18_0 .net "S", 0 0, L_027bfe20;  alias, 1 drivers
+v027b99b0_0 .net "_Q", 0 0, L_027bfc70;  1 drivers
+S_02781870 .scope module, "slave" "d_latch" 2 103, 2 78 0, S_0102be48;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027bfcb8 .functor NOT 1, L_027bfa78, C4<0>, C4<0>, C4<0>;
+L_027bf910 .functor NAND 1, L_027bfa78, L_027bfb08, C4<1>, C4<1>;
+L_027bfdd8 .functor NAND 1, L_027bfcb8, L_027bfb08, C4<1>, C4<1>;
+v027b97f8_0 .net "D", 0 0, L_027bfa78;  alias, 1 drivers
+v027b98a8_0 .net "En", 0 0, L_027bfb08;  alias, 1 drivers
+v027b9f30_0 .net "Q", 0 0, L_027bf5b0;  alias, 1 drivers
+v027b9900_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027b9a60_0 .net "_D", 0 0, L_027bfcb8;  1 drivers
+v027b9f88_0 .net "s1", 0 0, L_027bf910;  1 drivers
+v027b9fe0_0 .net "s2", 0 0, L_027bfdd8;  1 drivers
+S_02781940 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_02781870;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf5b0 .functor NAND 1, L_027bf910, L_027bfb50, C4<1>, C4<1>;
+L_027bfb50 .functor NAND 1, L_027bfdd8, L_027bf5b0, v027be8b0_0, C4<1>;
+v027b9d20_0 .net "Q", 0 0, L_027bf5b0;  alias, 1 drivers
+v027ba0e8_0 .net "R", 0 0, L_027bfdd8;  alias, 1 drivers
+v027b9d78_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027b9850_0 .net "S", 0 0, L_027bf910;  alias, 1 drivers
+v027b9dd0_0 .net "_Q", 0 0, L_027bfb50;  1 drivers
+S_027bb048 .scope module, "t_flipflop3" "t_flipflop" 2 60, 2 107 0, S_010238d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "T"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0598 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_027bfbe0 .functor XOR 1, L_027bf880, L_027c0598, C4<0>, C4<0>;
+L_027bf9e8 .functor NOT 1, L_027bed80, C4<0>, C4<0>, C4<0>;
+v027bc8c8_0 .net "CLK", 0 0, L_027bed80;  1 drivers
+v027bcc90_0 .net "D", 0 0, L_027bfbe0;  1 drivers
+v027bc9d0_0 .net "Q", 0 0, L_027bf880;  1 drivers
+v027bc500_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bc2f0_0 .net "T", 0 0, L_027c0598;  1 drivers
+v027bcb88_0 .net "_CLK", 0 0, L_027bf9e8;  1 drivers
+S_027bb118 .scope module, "myDflipflop" "d_flipflop" 2 114, 2 94 0, S_027bb048;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf640 .functor NOT 1, L_027bf9e8, C4<0>, C4<0>, C4<0>;
+v027bc710_0 .net "CLK", 0 0, L_027bf9e8;  alias, 1 drivers
+v027bc818_0 .net "D", 0 0, L_027bfbe0;  alias, 1 drivers
+v027bc870_0 .net "Q", 0 0, L_027bf880;  alias, 1 drivers
+v027bcc38_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bc450_0 .net "Y", 0 0, L_027bf958;  1 drivers
+v027bcce8_0 .net "_CLK", 0 0, L_027bf640;  1 drivers
+S_027bb1e8 .scope module, "master" "d_latch" 2 101, 2 78 0, S_027bb118;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf688 .functor NOT 1, L_027bfbe0, C4<0>, C4<0>, C4<0>;
+L_027bf6d0 .functor NAND 1, L_027bfbe0, L_027bf640, C4<1>, C4<1>;
+L_027bfa30 .functor NAND 1, L_027bf688, L_027bf640, C4<1>, C4<1>;
+v027bcdf0_0 .net "D", 0 0, L_027bfbe0;  alias, 1 drivers
+v027bd058_0 .net "En", 0 0, L_027bf640;  alias, 1 drivers
+v027bd000_0 .net "Q", 0 0, L_027bf958;  alias, 1 drivers
+v027bcfa8_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bd0b0_0 .net "_D", 0 0, L_027bf688;  1 drivers
+v027bd108_0 .net "s1", 0 0, L_027bf6d0;  1 drivers
+v027bd210_0 .net "s2", 0 0, L_027bfa30;  1 drivers
+S_027bbd70 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_027bb1e8;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf958 .functor NAND 1, L_027bf6d0, L_027bf718, C4<1>, C4<1>;
+L_027bf718 .functor NAND 1, L_027bfa30, L_027bf958, v027be8b0_0, C4<1>;
+v027ba400_0 .net "Q", 0 0, L_027bf958;  alias, 1 drivers
+v027ba458_0 .net "R", 0 0, L_027bfa30;  alias, 1 drivers
+v027bcef8_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bd268_0 .net "S", 0 0, L_027bf6d0;  alias, 1 drivers
+v027bcf50_0 .net "_Q", 0 0, L_027bf718;  1 drivers
+S_027bb2e0 .scope module, "slave" "d_latch" 2 103, 2 78 0, S_027bb118;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf7f0 .functor NOT 1, L_027bf958, C4<0>, C4<0>, C4<0>;
+L_027bf838 .functor NAND 1, L_027bf958, L_027bf9e8, C4<1>, C4<1>;
+L_027bf7a8 .functor NAND 1, L_027bf7f0, L_027bf9e8, C4<1>, C4<1>;
+v027bc7c0_0 .net "D", 0 0, L_027bf958;  alias, 1 drivers
+v027bc3f8_0 .net "En", 0 0, L_027bf9e8;  alias, 1 drivers
+v027bc920_0 .net "Q", 0 0, L_027bf880;  alias, 1 drivers
+v027bcd98_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bc978_0 .net "_D", 0 0, L_027bf7f0;  1 drivers
+v027bcd40_0 .net "s1", 0 0, L_027bf838;  1 drivers
+v027bcb30_0 .net "s2", 0 0, L_027bf7a8;  1 drivers
+S_027bb620 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_027bb2e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bf880 .functor NAND 1, L_027bf838, L_027bf9a0, C4<1>, C4<1>;
+L_027bf9a0 .functor NAND 1, L_027bf7a8, L_027bf880, v027be8b0_0, C4<1>;
+v027bd160_0 .net "Q", 0 0, L_027bf880;  alias, 1 drivers
+v027bd1b8_0 .net "R", 0 0, L_027bf7a8;  alias, 1 drivers
+v027bce48_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bcea0_0 .net "S", 0 0, L_027bf838;  alias, 1 drivers
+v027bc768_0 .net "_Q", 0 0, L_027bf9a0;  1 drivers
+S_027bb960 .scope module, "t_flipflop4" "t_flipflop" 2 61, 2 107 0, S_010238d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "T"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027c05c0 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_027bffd0 .functor XOR 1, L_027bff88, L_027c05c0, C4<0>, C4<0>;
+L_027bff40 .functor NOT 1, L_027bf358, C4<0>, C4<0>, C4<0>;
+v027be7a8_0 .net "CLK", 0 0, L_027bf358;  1 drivers
+v027bef38_0 .net "D", 0 0, L_027bffd0;  1 drivers
+v027be4e8_0 .net "Q", 0 0, L_027bff88;  1 drivers
+v027be960_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bee88_0 .net "T", 0 0, L_027c05c0;  1 drivers
+v027be648_0 .net "_CLK", 0 0, L_027bff40;  1 drivers
+S_027bba30 .scope module, "myDflipflop" "d_flipflop" 2 114, 2 94 0, S_027bb960;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "CLK"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0180 .functor NOT 1, L_027bff40, C4<0>, C4<0>, C4<0>;
+v027bed28_0 .net "CLK", 0 0, L_027bff40;  alias, 1 drivers
+v027bebc8_0 .net "D", 0 0, L_027bffd0;  alias, 1 drivers
+v027bec20_0 .net "Q", 0 0, L_027bff88;  alias, 1 drivers
+v027be490_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027be540_0 .net "Y", 0 0, L_027c0450;  1 drivers
+v027be908_0 .net "_CLK", 0 0, L_027c0180;  1 drivers
+S_027bc180 .scope module, "master" "d_latch" 2 101, 2 78 0, S_027bba30;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0258 .functor NOT 1, L_027bffd0, C4<0>, C4<0>, C4<0>;
+L_027c02e8 .functor NAND 1, L_027bffd0, L_027c0180, C4<1>, C4<1>;
+L_027bfe68 .functor NAND 1, L_027c0258, L_027c0180, C4<1>, C4<1>;
+v027bcad8_0 .net "D", 0 0, L_027bffd0;  alias, 1 drivers
+v027bcbe0_0 .net "En", 0 0, L_027c0180;  alias, 1 drivers
+v027bc558_0 .net "Q", 0 0, L_027c0450;  alias, 1 drivers
+v027bc5b0_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bc608_0 .net "_D", 0 0, L_027c0258;  1 drivers
+v027bc660_0 .net "s1", 0 0, L_027c02e8;  1 drivers
+v027bc6b8_0 .net "s2", 0 0, L_027bfe68;  1 drivers
+S_027bbb00 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_027bc180;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027c0450 .functor NAND 1, L_027c02e8, L_027c0210, C4<1>, C4<1>;
+L_027c0210 .functor NAND 1, L_027bfe68, L_027c0450, v027be8b0_0, C4<1>;
+v027bc4a8_0 .net "Q", 0 0, L_027c0450;  alias, 1 drivers
+v027bc348_0 .net "R", 0 0, L_027bfe68;  alias, 1 drivers
+v027bca28_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bc3a0_0 .net "S", 0 0, L_027c02e8;  alias, 1 drivers
+v027bca80_0 .net "_Q", 0 0, L_027c0210;  1 drivers
+S_027bbbd0 .scope module, "slave" "d_latch" 2 103, 2 78 0, S_027bba30;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "D"
+    .port_info 2 /INPUT 1 "En"
+    .port_info 3 /INPUT 1 "R2"
+L_027c03c0 .functor NOT 1, L_027c0450, C4<0>, C4<0>, C4<0>;
+L_027c0408 .functor NAND 1, L_027c0450, L_027bff40, C4<1>, C4<1>;
+L_027c0498 .functor NAND 1, L_027c03c0, L_027bff40, C4<1>, C4<1>;
+v027becd0_0 .net "D", 0 0, L_027c0450;  alias, 1 drivers
+v027bedd8_0 .net "En", 0 0, L_027bff40;  alias, 1 drivers
+v027bea10_0 .net "Q", 0 0, L_027bff88;  alias, 1 drivers
+v027be5f0_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027bee30_0 .net "_D", 0 0, L_027c03c0;  1 drivers
+v027beb18_0 .net "s1", 0 0, L_027c0408;  1 drivers
+v027beee0_0 .net "s2", 0 0, L_027c0498;  1 drivers
+S_027bbe40 .scope module, "mysrlatch" "s_r_latch" 2 89, 2 67 0, S_027bbbd0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Q"
+    .port_info 1 /INPUT 1 "S"
+    .port_info 2 /INPUT 1 "R"
+    .port_info 3 /INPUT 1 "R2"
+L_027bff88 .functor NAND 1, L_027c0408, L_027c0138, C4<1>, C4<1>;
+L_027c0138 .functor NAND 1, L_027c0498, L_027bff88, v027be8b0_0, C4<1>;
+v027be800_0 .net "Q", 0 0, L_027bff88;  alias, 1 drivers
+v027be750_0 .net "R", 0 0, L_027c0498;  alias, 1 drivers
+v027bec78_0 .net "R2", 0 0, v027be8b0_0;  alias, 1 drivers
+v027be9b8_0 .net "S", 0 0, L_027c0408;  alias, 1 drivers
+v027be598_0 .net "_Q", 0 0, L_027c0138;  1 drivers
+    .scope S_01023800;
+T_0 ;
+    %vpi_call 2 11 "$monitor", $time, " Count : %d", v027beac0_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_01023800;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027be8b0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027be8b0_0, 0, 1;
+    %delay 500, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027be8b0_0, 0, 1;
+    %delay 50, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v027be8b0_0, 0, 1;
+    %end;
+    .thread T_1;
+    .scope S_01023800;
+T_2 ;
+    %vpi_call 2 35 "$dumpfile", "wavedata.vcd" {0 0 0};
+    %vpi_call 2 36 "$dumpvars", 32'sb00000000000000000000000000000000, S_01023800 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v027bea68_0, 0, 1;
+T_2.0 ;
+    %delay 10, 0;
+    %load/vec4 v027bea68_0;
+    %inv;
+    %store/vec4 v027bea68_0, 0, 1;
+    %jmp T_2.0;
+    %end;
+    .thread T_2;
+    .scope S_01023800;
+T_3 ;
+    %delay 700, 0;
+    %vpi_call 2 46 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "counter.v";
