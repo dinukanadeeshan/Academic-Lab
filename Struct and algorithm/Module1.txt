@@ -1,0 +1,4858 @@
+/////////////////////////////////////////
+Q1
+#include<stdio.h>
+int main(){
+	printf("Hello C! \n");
+	return 0;
+}
+
+/////////////////////////////////////////////
+Q2	Variables in C
+	==============
+#include<stdio.h>
+int main(){
+	int x;
+	x=100;
+	printf("%d\n",x);
+	return 0;
+}
+
+/////////////////////////////////////////////
+Q3	Garbage Values for varaibles
+
+#include<stdio.h>
+int main(){
+	int x;
+	printf("%d\n",x);
+	return 0;
+}
+/////////////////////////////////////////////
+Q4	Simple Data Types in C
+
+	Data type	Range of value 
+	==========================
+	int			–2,147,483,648 to 2,147,483,647
+	short		–32,768 to 32,767
+	long		–2,147,483,648 to 2,147,483,647
+	float		3.4E +/- 38 (7 digits)
+	double		1.7E +/- 308 (15 digits)
+	char		–128 to 127
+/////////////////////////////////////////////
+Q5	All data types in C
+
+include <stdio.h>
+
+int main(){
+	char ch;
+	unsigned char uch;
+	short s;
+	unsigned short us;
+	short int si;
+	unsigned short int isi;
+	int i;
+	unsigned int ui;
+	long int li;
+	unsigned long int uli;
+	long l;
+	long long ll;
+	unsigned long long ull;
+	float f;
+	float lf;
+	double d;
+	long double ld;
+	
+	printf("size of char %d\n",sizeof(ch));
+	printf("size of unsigned char %d\n",sizeof(uch));
+	printf("size of short %d\n",sizeof(s));
+	printf("size of unsigned short %d\n",sizeof(us));
+	printf("size of short int %d\n",sizeof(si));
+	printf("size of unsigned short int %d\n",sizeof(isi));
+	printf("size of int %d\n",sizeof(i));
+	printf("size of unsigned int %d\n",sizeof(ui));
+	printf("size of long int %d\n",sizeof(li));
+	printf("size of unsigned long int %d\n",sizeof(uli));
+	printf("size of long %d\n",sizeof(l));
+	printf("size of long long %d\n",sizeof(ll));
+	printf("size of unsigned long long %d\n",sizeof(ull));
+	printf("size of float %d\n",sizeof(f));
+	printf("size of float %d\n",sizeof(lf));
+	printf("size of double %d\n",sizeof(d));
+	printf("size of long double %d\n",sizeof(ld));
+	return 0;
+}
+/////////////////////////////////////////////
+Q6	Conversion Chars
+
+#include <stdio.h>
+
+int main(){
+	char ch='A';
+	unsigned char uch='B';
+	short s=100;
+	unsigned short us=200;
+	short int si=300;
+	unsigned short int isi=400;
+	int i=500;
+	unsigned int ui=600;
+	long int li=1000;
+	unsigned long int uli=3000;
+	long l=1000;
+	long long ll=6000;
+	unsigned long long ull=50000;
+	float f=1.5;
+	double d=1.34343;
+	long double ld=45.54554;
+	
+	printf("char : %c\n",ch);
+	printf("unsigned char : %c\n",uch);
+	printf("short : %d\n",s);
+	printf("unsigned short : %d\n",us);
+	printf("short int : %d\n",si);
+	printf("unsigned short int : %d\n",isi);	
+	printf("int : %d\n",i);	
+	printf("unsigned int : %d\n",ui);		
+	printf("long int : %ld\n",li);
+	printf("unsigned long int : %ld\n",uli);
+	printf("long : %ld\n",l);
+	printf("long long : %Ld\n",ll);					
+	printf("unsigned long long : %Lu\n",ull);	
+	
+	printf("float : %f\n",f);
+	printf("double : %f\n",d);
+	printf("long double : %lf\n",d);
+	return 0;
+}
+/////////////////////////////////////////////
+Q7	Memory Concepts
+	===============
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	printf("x : %d\n",x);
+	printf("address x : %p\n",&x);
+	return 0;
+}
+/////////////////////////////////////////////
+Q8	"scanf()"
+
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	printf("Input a number :");
+	scanf("%d",&x);
+	
+	printf("Your number : %d \n",x);
+	return 0;
+}
+/////////////////////////////////////////////
+Q9
+Type			printf char	scanf char
+=====================================
+long double 		%Lf 	%Lf
+double 				%f 		%lf
+float 				%f		 %f
+unsigned long int 	%lu 	%lu
+long int 			%ld		 %ld
+unsigned int 		%u		 %u
+int 				%d		 %d
+unsigned short 		%hu 	%hu
+short 				%hd 	%hd
+char 				%c 		%c
+
+/////////////////////////////////////////////
+Q10	scanf "conversion char"
+#include <stdio.h>
+
+int main(){
+	short s;
+	unsigned short us;
+	
+	int i;
+	unsigned int ui;
+	
+	long l;
+	unsigned long ul;
+	
+	long long ll;
+	unsigned long long ull;
+	
+	float f;
+	double d;
+	long double ld;
+		
+	printf("Input short number : ");
+	scanf("%hd",&s);
+	
+	printf("Input unsgined short number : ");
+	scanf("%hu",&us);
+
+	printf("Input int number : ");
+	scanf("%d",&i);
+	
+	printf("Input unsigned int number : ");
+	scanf("%u",&ui);
+
+	printf("Input long number : ");
+	scanf("%ld",&l);
+	
+	printf("Input unsigned long number : ");
+	scanf("%lu",&ul);
+
+	printf("Input long long number : ");
+	scanf("%Ld",&ll);
+
+	printf("Input unsigned long long number : ");
+	scanf("%Lu",&ull);
+	
+	printf("Input float number : ");
+	scanf("%f",&f);
+	
+	printf("Input double number : ");
+	scanf("%lf",&d);
+
+	printf("Input long double number : ");
+	scanf("%Lf",&ld);
+	
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q11	 Keywords Defined by C89
+		------------------------
+auto 		double 	int 		struct
+break 		else 	long 		switch
+case 		enum 	register 	typedef
+char 		extern 	return 		union
+const 		float 	short 		unsigned
+continue 	for 	signed 		void
+default 	goto 	sizeof 		volatile
+do 			if 		static 		while
+
+Keywords added in C99
+_Bool
+_Complex
+_Imaginary
+inline
+restrict
+
+////////////////////////////////////////////////////////////
+		Operators in C - 5
+////////////////////////////////////////////////////////////
+Q12	Arithmetic Operators
+	
+#include <stdio.h>
+
+int main(){
+	int num1,num2,add,sub,div,mul;
+	printf("Input number 1 : ");
+	scanf("%d",&num1);
+	
+	printf("Input number 2 : ");
+	scanf("%d",&num2);
+	
+	add=num1+num2;
+	sub=num1-num2;
+	div=num1/num2;
+	mul=num1*num2;
+	
+	printf("%d + %d = %d\n",num1,num2,add);
+	printf("%d - %d = %d\n",num1,num2,sub);
+	printf("%d * %d = %d\n",num1,num2,mul);
+	printf("%d / %d = %d\n",num1,num2,div);
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q13	Arithmetic Operators	% 
+
+#include <stdio.h>
+
+int main(){
+	int num1,num2,mod;
+	printf("Input number 1 : ");
+	scanf("%d",&num1);
+	
+	printf("Input number 2 : ");
+	scanf("%d",&num2);
+	
+	mod=num1 % num2;
+
+	printf("%d %% %d = %d\n",num1,num2,mod);
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q14	++, -- and x++ VS ++x;
+
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	printf("x : %d \n",x);
+	
+	x++;
+	printf("x : %d \n",x);	
+	
+	++x;
+	printf("x : %d \n",x);	
+	
+	x--;
+	printf("x : %d \n",x);		
+	
+	--x;
+	printf("x : %d \n",x);	
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q15	x++ VS ++x;
+
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	int y;
+	y=x++;
+	printf("x : y %d, %d \n",x,y);
+
+	int a=100;
+	int b;
+	b=++a;
+	printf("a : a %d, %d \n",a,b);	
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q16	
+	in C 
+	====
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	x=x++ +x++;
+	printf("x :  %d\n",x);	// prints 202
+
+	return 0;
+}
+
+
+// in Java 
+class Demo{
+	public static void main(String args[]){
+		int x=100;
+		x=x++ + x++;
+		System.out.printf("x : %d",x);	// prints 201
+
+	}
+}
+
+////////////////////////////////////////////////////////////
+Q17	"op="
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	x+=100;
+	printf("x :  %d\n",x);
+
+	int y=10;
+	y%=6;
+	printf("y :  %d\n",y);	
+	return 0;
+}
+
+////////////////////////////////////////////////////////////
+Q18	Relational Operators
+
+#include <stdio.h>
+
+int main(){
+	int x=10;
+	if(x>0)
+		printf("x > 0 \n");
+	x=-10;
+	if(x<0)
+		printf("x < 0 \n");	
+
+	x=100;
+	if(x>=0)
+		printf("x >= 0 \n");		
+	x=-100;
+	if(x<=0)
+		printf("x <= 0 \n");		
+
+	x=100;
+	if(x==100)
+		printf("x ==100 \n");		
+
+	x=1;
+	if(x!=0)
+		printf("x != 0 \n");		
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q19		Boolean Logical Operators
+		=========================
+		&&	-	Logical AND
+		||	-	Logical OR
+		^	-	XOR
+		!	-	NOT
+		?:	-	Conditional Operator
+
+#include <stdio.h>
+
+int main(){
+	int x=10,y=100;
+	
+	if(x++==10 || y++==100){
+		//
+	}
+	printf("x : %d, y : %d \n",x,y);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q20
+#include <stdio.h>
+
+int main(){
+	int x=9,y=100;
+	
+	if(x++==10 && y++==100){
+		//
+	}
+	printf("x : %d, y : %d \n",x,y);
+	return 0;	
+}
+
+
+////////////////////////////////////////////////////////////
+		Bitwise Operators in C
+		&
+		|
+		^ 
+		~
+		>>
+		<<
+
+////////////////////////////////////////////////////////////
+Q21
+#include <stdio.h>
+
+int main(){
+	int x=5,y=3,z;
+	z= x & y;
+	printf("x & y  : %d \n",z);
+	
+	z= x | y;
+	printf("x | y  : %d \n",z);
+
+	z= x ^ y;
+	printf("x ^ y  : %d \n",z);
+	
+	x=5;
+	z=~x;	
+	printf(" ~x  : %d \n",z);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q22	<<, >>
+
+#include <stdio.h>
+
+int main(){
+	int x=256;
+	int y=x>>1;
+	printf("x >> 1  : %d \n",y);
+	
+	y=x>>2;
+	printf("x >> 2  : %d \n",y);
+	
+	y=x>>4;
+	printf("x >> 4	 : %d \n",y);
+	
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q23	signed shift	
+#include <stdio.h>
+
+int main(){
+	int x=-1;
+	int y=x>>1;
+	printf("x >> 1  : %d \n",y);
+	
+	x=-2;
+	y=x>>1;
+	printf("-2 >> 1  : %d \n",y);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q24	"<<"
+#include <stdio.h>
+
+int main(){
+	int x=128;
+	int y=x<<1;
+	printf("128 << 1  : %d \n",y);
+
+	return 0;	
+}
+
+
+////////////////////////////////////////////////////////////
+Q25	"<<" Left shift
+#include <stdio.h>
+
+int main(){
+	int x=2147483647;
+	int y=x<<1;
+	printf("2147483647 << 1  : %d \n",y);
+
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q26	Conditional Operator
+	===================
+#include <stdio.h>
+
+int main(){
+	int x=-10;
+	
+	int y=x<0 ? -x:x;
+	
+	printf("abs(10) ?: %d\n",y);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q27
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int x=-10;
+	
+	int y=x<0 ? -x:x;
+	
+	printf("abs(10) ?: %d\n",y);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q28
+#include <stdio.h>
+int main(){
+	int x = 10 * 20 / 5;
+	printf("x : %d\n",x); 
+	x= 16 % 6 / 2;
+	printf("x : %d\n",x); 
+	return 0;
+}
+////////////////////////////////////////////////////////////
+Q29
+#include <stdio.h>
+int main(){
+	int x =19,y=4,z=5;
+	int a=x%~y+z*z+1;
+	printf("a : %d\n",a); 
+	return 0;
+}
+////////////////////////////////////////////////////////////
+Q30
+#include <stdio.h>
+int main(){
+	int x =  10 + 6 % 6+10  / 2; 
+	printf("x : %d\n",x); 
+	x= 10 + 6 % (6+10) / 2;
+	printf("x : %d\n",x); 
+	x= (10 + 6 % (6+10)) / 2;
+	printf("x : %d\n",x); 
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////
+Q31	Boolean Data
+	============
+
+#include <stdio.h>
+
+int main(){
+	int x=-1;	//0 - false	
+				//1 - true
+	if(x){					
+		printf("A\n");
+	}else{
+		printf("B\n");
+	}
+	int b=10>5;		
+	printf("10 > 5 : %d\n",b); 
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q32		Flow Control Statements in C
+		============================
+	1.	if
+	2.	if/else
+	3.	if/else if
+	4.	Nested if
+	5.	switch
+	6.	for-loop
+	7.	while-loop
+	8.	do-while loop
+	9.	break;
+	10.	Continue
+
+////////////////////////////////////////////////////////////////
+Q33		"for-loop"
+
+#include <stdio.h>
+
+int main(){
+	int i;
+	for(i=0;i<10;i++){
+		printf("Hello C !\n");
+	} 
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q34	break
+
+#include <stdio.h>
+
+int main(){
+	int i=0;
+	for(i=0;i<10;i++){	
+		printf("Hello C !\n");
+		if(i==5) break;
+	} 
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q35	"Continue"
+#include <stdio.h>
+
+int main(){
+	int i=0;
+	for(i=0;i<10;i++){	
+		printf("Before : %i \n",i);
+		if(i%2==0) continue;
+		printf("After : %i \n",i);
+	} 
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+		Variable Scop and Life time
+
+////////////////////////////////////////////////////////////////
+Q36	Local Variables
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	if(x>0){
+		int y=200;
+		printf("x : %d\n",x);
+		printf("y : %d\n",y);
+	}
+	printf("x : %d\n",x);
+	printf("y : %d\n",y);	//Error
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q37	
+#include <stdio.h>
+
+int main(){
+	int x=100;
+	printf("x : %d\n",x);
+	if(x>0){
+		int x=200;
+		printf("x : %d\n",x);
+	}
+	printf("x : %d\n",x);
+
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q38	Example for 
+#include <stdio.h>
+
+int main(){
+	int x;
+	printf("Input a number : ");
+	scanf("%d",&x);
+	int count=0;
+	int a=x;
+	while(a!=0){
+		count++;
+		a=a/10;
+	}
+	
+	printf("No of digits for %d is %d\n",x,count);
+
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////////
+Q39
+#include <stdio.h>
+
+int value=100;
+
+int main(){
+	int x=300;
+	printf("");
+	int i;
+	{
+		int y=500;
+		printf("value : %d, x : %d, y : %d\n",value,x,y);
+	}
+	
+	//printf("Other value : %d \n",otherValue);
+	return 0;	
+}
+
+int otherValue=10000;
+
+////////////////////////////////////////////////////////////////
+Q40	storage class 
+	"auto"
+#include <stdio.h>
+
+int main(){
+	int i;
+	for(i=0;i<10;i++){
+		auto int y=1;
+		printf("y : %d\n",y);
+		y++; 
+	}
+	//printf("y : %d\n",y);//
+	return 0;	
+}
+
+
+
+/////////////////////////////////////////////////////////////////Q41	"static"
+#include <stdio.h>
+
+int main(){
+	int i;
+	for(i=0;i<10;i++){
+		static int y=1;
+		printf("y : %d\n",y);
+		y++; 
+	}
+	//printf("y : %d\n",y);//
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q42
+#include <stdio.h>
+
+int main(){
+	int i;
+	for(i=0;i<10;i++){
+		register int y=1;
+		printf("y : %d\n",y);
+		y++; 
+	}
+	//printf("y : %d\n",y);//
+	return 0;	
+}
+/////////////////////////////////////////////////////////////////
+	functions
+/////////////////////////////////////////////////////////////////
+Q43
+#include <stdio.h>
+
+void printName(){
+	printf("Niroth\n");
+}
+
+int main(){
+	printName();
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q44
+#include <stdio.h>
+
+void printNumber(int number){
+	printf("Your number is %d\n",number);
+}
+
+int main(){
+	printNumber(100);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q45
+#include <stdio.h>
+
+int main(){
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q46	From Q45
+#include <stdio.h>
+
+int findMax(int a,int b, int c){
+	int max=a;
+	if(b>max) max=b;
+	if(c>max) max=c;
+	return max;
+}
+
+int main(){
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q47
+#include <stdio.h>
+
+int main(){
+	int findMax(int a,int b, int c){
+		int max=a;
+		if(b>max) max=b;
+		if(c>max) max=c;
+		return max;
+	}
+
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q48
+#include <stdio.h>
+
+int main(){
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+int findMax(int a,int b, int c){
+	int max=a;
+	if(b>max) max=b;
+	if(c>max) max=c;
+	return max;
+}
+
+
+////////////////////////////////////////////////////////////
+Q49
+#include <stdio.h>
+
+int findMax(int a,int b, int c);
+
+int main(){
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+int findMax(int a,int b, int c){
+	int max=a;
+	if(b>max) max=b;
+	if(c>max) max=c;
+	return max;
+}
+
+////////////////////////////////////////////////////////////
+Q50
+#include <stdio.h>
+
+int findMax(int,int, int);
+
+int main(){
+	int x,y,z;
+	printf("Input number 1 : ");
+	scanf("%d",&x);
+	printf("Input number 2 : ");
+	scanf("%d",&y);
+	printf("Input number 3 : ");
+	scanf("%d",&z);
+	
+	int m=findMax(x,y,z);
+	printf("Max of %d, %d, %d is : %d :\n",x,y,z,m);
+	return 0;	
+}
+
+int findMax(int a,int b, int c){
+	int max=a;
+	if(b>max) max=b;
+	if(c>max) max=c;
+	return max;
+}
+
+
+
+////////////////////////////////////////////////////////////
+Q51	Example 
+#include <stdio.h>
+
+int no_of_Digits(int number);
+
+int main(){
+	int x;
+	printf("Input number : ");
+	scanf("%d",&x);
+	int n=no_of_Digits(x);
+	printf("No of digits for %d is %d\n",x,n);
+	return 0;	
+}
+int no_of_Digits(int number){
+	int count=0;
+	while(number!=0){
+		number/=10;
+		count++;
+	}
+	return count==0 ? 1 : count;
+}
+
+
+////////////////////////////////////////////////////////////
+Q52	Call by Values
+#include <stdio.h>
+
+void increment(int x);
+
+int main(){
+	int x;
+	printf("Input number : ");
+	scanf("%d",&x);
+	printf("x : %d\n",x);
+	increment(x);
+	printf("x : %d\n",x);
+	return 0;	
+}
+void increment(int x){
+	++x;
+	printf("x : %d\n",x);
+}
+////////////////////////////////////////////////////////////
+Q53	Call by Values
+#include <stdio.h>
+
+void swap(int x, int y);
+
+int main(){
+	int x,y;
+	printf("Input number for x: ");
+	scanf("%d",&x);
+	printf("Input number for y: ");
+	scanf("%d",&y);
+	printf("x,y : %d,%d\n",x,y);
+	swap(x,y);
+	printf("x,y : %d,%d\n",x,y);
+	return 0;	
+}
+void swap(int x,int y){
+	int temp=x;
+	x=y;
+	y=temp;
+	printf("x,y : %d,%d\n",x,y);
+}
+
+////////////////////////////////////////////////////////////
+Q54	Call by Reference
+
+#include <stdio.h>
+
+void swap(int *x, int *y);
+
+int main(){
+	int x,y;
+	printf("Input number for x: ");
+	scanf("%d",&x);
+	printf("Input number for y: ");
+	scanf("%d",&y);
+	printf("x,y : %d,%d\n",x,y);
+	swap(&x,&y);
+	printf("x,y : %d,%d\n",x,y);
+	return 0;	
+}
+void swap(int *x,int *y){
+	int temp=*x;
+	*x=*y;
+	*y=temp;
+	printf("x,y : %d,%d\n",*x,*y);
+}
+
+////////////////////////////////////////////////////////////
+		Storage Duration for functions
+////////////////////////////////////////////////////////////
+Q55		automatic duration
+		==================
+#include <stdio.h>
+void m();
+int main(){
+	m();
+	m();
+	m();
+	return 0;	
+}
+void m(){
+	int x=100;
+	printf("x : %d\n",x);
+	x++;
+}
+
+////////////////////////////////////////////////////////////
+Q56		Static Duration
+		==============
+#include <stdio.h>
+void m();
+int main(){
+	m();
+	m();
+	m();
+	return 0;	
+}
+void m(){
+	static int x=100;
+	printf("x : %d\n",x);
+	x++;
+}
+
+////////////////////////////////////////////////////////////
+Q57	Register
+#include <stdio.h>
+void m();
+int main(){
+	m();
+	m();
+	m();
+	return 0;	
+}
+void m(){
+	register int x=100;
+	printf("x : %d\n",x);
+	x++;
+}
+
+////////////////////////////////////////////////////////////
+		Function Recursive
+////////////////////////////////////////////////////////////
+Q58
+#include <stdio.h>
+void function();
+int main(){
+	printf("Start main\n");
+	function();
+	printf("End main\n");	
+	return 0;	
+}
+void function(){
+	printf("Start function\n");
+	function();
+	printf("End main\n");
+}
+
+
+////////////////////////////////////////////////////////////
+Q59	Function Recursive in Java
+class Demo{
+	public static void main(String asrs[]){
+		System.out.println("Start main");
+		function();
+		System.out.println("End. main");	
+	}
+	static void function(){
+		System.out.println("Start function");
+		function();
+		System.out.println("End. function");	
+	}
+}
+
+////////////////////////////////////////////////////////////
+Q60
+#include <stdio.h>
+int number=100;
+void function();
+int main(){
+	printf("Start main\n");
+	function();
+	printf("End main\n");	
+	return 0;	
+}
+void function(){
+	printf("Start function %d : \n",number);
+	if(number-->0) function();
+	printf("End main %d : \n",number);
+}
+
+////////////////////////////////////////////////////////////
+Q61
+#include <stdio.h>
+void function(int);
+int main(){
+	printf("Start main\n");
+	function(100);
+	printf("End main\n");	
+	return 0;	
+}
+void function(int number){
+	printf("Number : %d\n",number);
+	if(number>0) function(--number);
+}
+
+////////////////////////////////////////////////////////////
+Q62	In Java
+class Demo{
+	public static void main(String asrs[]){
+		System.out.println("Start main");
+		function(100);
+		System.out.println("End. main");	
+	}
+	static void function(int x){
+		if(x>0)function(--x);
+		System.out.println("Number : "+x);	
+	}
+}
+
+////////////////////////////////////////////////////////////
+Q63
+#include <stdio.h>
+int function(int);
+int main(){
+	int x;
+	printf("Input a number : ");
+	scanf("%d",&x);
+	int total=function(x);
+	printf("Total : %d\n",total);
+	return 0;	
+}
+int function(int number){
+	return number==1 ? 1: number+function(number-1);	
+}
+
+
+////////////////////////////////////////////////////////////
+Q64	In Java
+
+class Demo{
+	public static void main(String asrs[]){
+		System.out.println("Start main");
+		int total=function(100);
+		System.out.println("Total : "+total);
+	}
+	static int function(int number){
+		return number==1 ? 1: number+function(number-1);	
+	}
+}
+
+////////////////////////////////////////////////////////////
+Q65
+#include <stdio.h>
+int function(int);
+int main(){
+	int x;
+	printf("Input a number : ");
+	scanf("%d",&x);
+	int fact=function(x);
+	printf("%d : %d\n",x,fact);
+	return 0;	
+}
+int function(int number){
+	int i;
+	int f=1;
+	for(i=number;i>0;i--){
+		f*=i;
+	}
+	return f;
+}
+
+////////////////////////////////////////////////////////////
+Q66	Factorial Using Function Recursive
+
+#include <stdio.h>
+int function(int);
+int main(){
+	int x;
+	printf("Input a number : ");
+	scanf("%d",&x);
+	int fact=function(x);
+	printf("%d! : %d\n",x,fact);
+	return 0;	
+}
+int function(int number){
+	return number==0 ? 1 : number==1 ? 1: number*function(number-1);	
+}
+
+////////////////////////////////////////////////////////////////
+		Arrays
+////////////////////////////////////////////////////////////////
+Q67
+#include <stdio.h>
+
+int main(){
+	int x[3];
+	x[0]=100;
+	x[1]=200;
+	x[2]=300;
+	
+	printf("x[0] : %d\n",x[0]);
+	printf("x[1] : %d\n",x[1]);
+	printf("x[2] : %d\n",x[2]);
+	return 0;	
+}
+
+///////////////////////////////////////////////////////////////
+Q68
+#include <stdio.h>
+
+int main(){
+	int x[3];
+	x[0]=100;
+	
+	printf("x[0] : %d\n",x[0]);
+	printf("address: %p\n",x);
+
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q69
+#include <stdio.h>
+
+int main(){
+	int x[]={34,56,78,79,78,34};
+	int y[6]={34,56,78,79,78,34};	//
+	int z[10]={34,56,78,79,78,34};
+	//int a[5]={34,56,78,79,78,34}; //Illegal
+
+	return 0;	
+}
+
+////////////////////////////////////////////////////////////
+Q70
+#include <stdio.h>
+
+int main(){
+	int x[5];
+	
+	int i;
+	for(i=0;i<5;i++){
+		printf("Input a number : ");
+		scanf("%d",&x[i]);
+	}
+	
+	//printArray
+	for(i=0;i<5;i++){
+		printf("%d ",x[i]);	
+	}
+	printf("\n");	
+	return 0;	
+}
+
+/////////////////////////////////////////////////////////////////Q71
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int x[5];
+	
+	int i;
+	for(i=0;i<5;i++){
+		x[i]=random()%100+1;
+	}
+	
+	//printArray
+	for(i=0;i<5;i++){
+		printf("%d ",x[i]);	
+	}
+	printf("\n");	
+	return 0;	
+}
+
+/////////////////////////////////////////////////////////////////Q72	Complete the each function
+#include <stdio.h>
+#include <stdlib.h>
+
+void readArray(int ar[]);
+void printArray(int ar[]);
+
+int main(){
+	int x[5];
+	
+	readArray(x);
+	printArray(x);
+	return 0;	
+}
+
+/////////////////////////////////////////////////////////////////
+Q73
+#include <stdio.h>
+#include <stdlib.h>
+
+void readArray(int ar[],int length);
+void printArray(int ar[], int length);
+
+int main(){
+	int const SIZE=5;
+	int x[SIZE];
+	
+	readArray(x,SIZE);
+	printArray(x,SIZE);
+	return 0;	
+}
+void readArray(int ar[],const int length){
+	int i;
+	for(i=0;i<length;i++){
+		ar[i]=rand()%100+1;
+	}
+}
+void printArray(int ar[],const int length){
+	int i;
+	for(i=0;i<length;i++){
+		printf("%d ",ar[i]);
+	}
+	printf("\n");
+}
+
+/////////////////////////////////////////////////////////////////
+Q74
+#include <stdio.h>
+#include <stdlib.h>
+
+void readArray(int ar[],int length);
+void printArray(int ar[], int length);
+int max(int ar[], int length);
+int min(int ar[], int length);
+int total(int ar[], int length);
+void sortBubble(int ar[], int length);
+void sortSelection(int ar[], int length);
+int serarch(int ar[], int length, int key);
+
+int main(){
+	int const SIZE=10;
+	int x[SIZE];
+	readArray(x,SIZE);
+	printArray(x,SIZE);
+	
+	int max_value=max(x,SIZE);
+	int min_value=min(x,SIZE);
+	int total_value=total(x,SIZE);
+	int index=serarch(x,SIZE,num);
+	
+	
+	return 0;	
+}
+
+
+/////////////////////////////////////////////////////////////////
+		Pointers
+/////////////////////////////////////////////////////////////////
+Q75
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int x;
+	printf("Input number : ");
+	scanf("%d",&x);
+	printf("Your number is : %d\n",x);
+	
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////
+Q76
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int x=100;
+	printf("x : %d\n",x);
+	printf("&x : %p\n",&x);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q77
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int x=100;
+	int *xptr;
+	xptr=&x;
+	
+	printf("Address of x : %p\n",&x);
+	printf("Address of x : %p\n",xptr);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q78
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int x=100;
+	int *xptr;
+	xptr=&x;
+	
+	printf("Address of x : %p\n",&x);
+	printf("Address of x : %p\n",xptr);
+	
+	printf("Address of xptr : %p\n",&xptr);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q79
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	int x=100;
+	int *xptr;
+	xptr=&x;
+	
+	printf("Value of x : %d\n",x);
+	printf("Value of x : %d\n",*xptr);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q80
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+	
+	printf("Value of x  : %d\n",x);		//prints value of x
+	printf("Value of x  : %d\n",*xPtr);	//prints value of x
+	
+	printf("Address of x: %p\n",xPtr);	//prints address of x
+	printf("Address of x: %p\n",&x);		//prints address of x	
+
+	printf("Address of ptr : %p\n",&xPtr);	//prints address of xPtr
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q81
+#include <stdio.h>
+int main(){
+
+	int x;
+	int *xPtr;
+	
+	printf("x   : %d\n",x);
+	printf("&x  : %p\n",&x);		
+		
+	x=100;
+	printf("x   : %d\n",x);
+	printf("&x  : %p\n",&x);			
+	
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q82
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	
+	printf("xPtr  : %p\n",xPtr);
+	printf("*xPtr : %d\n",*xPtr);		
+	
+	xPtr=&x;	
+	printf("xPtr  : %p\n",xPtr);
+	printf("*xPtr : %d\n",*xPtr);			
+		
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q83
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	
+	xPtr=&x;
+	
+	printf("x  : %d\n",x);
+	*xPtr=200;
+	printf("x  : %d\n",x);	
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q84
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	
+	xPtr=&x;
+	
+	printf("xPtr  : %p\n",xPtr);
+	xPtr=200; //Warning
+	printf("xPtr  : %p\n",xPtr);
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q85
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	
+	xPtr=&x;
+	
+	printf("x  : %d\n",x);
+	*xPtr++;
+	printf("x  : %d\n",x);	
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q86
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	
+	xPtr=&x;
+	
+	printf("x  : %d\n",x);
+	printf("xPtr  : %p\n",xPtr);
+	(*xPtr)++;
+	printf("x  : %d\n",x);	
+	printf("xPtr  : %p\n",xPtr);
+	return 0;
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q87
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+	
+	printf("Value of x  : %d\n",*xPtr);
+	x++;
+	printf("Value of x  : %d\n",*xPtr);
+	
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q88
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+
+	printf("x : %d\n",x);
+	printf("x : %d\n\n",*xPtr);	
+	
+	printf("adrress of x : %p\n",&x);
+	printf("address of x : %p\n\n",xPtr);
+
+	printf("address of xPtr : %p\n",*&xPtr);	//Complements of each other	
+	printf("address of xPtr : %p\n\n",&*xPtr);	//Complements of each other	
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q88
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+	
+	printf("Value of x  : %d\n",*xPtr); //prints value of x
+	xPtr++;	//increments address value of Pointer variable "xPtr"
+	printf("Value of x  : %d\n",*xPtr);	//Now prints a garbage value for pointer xPtr
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q89
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+	
+	printf("Value of x  : %d\n",*xPtr); //prints value of x
+	*xPtr++;	//Same reuslts
+	printf("Value of x  : %d\n",*xPtr);	//Now prints a garbage value for pointer xPtr
+
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q90
+#include <stdio.h>
+int main(){
+
+	int x=100;
+	int *xPtr;
+	xPtr=&x;
+	
+	printf("Value of x  : %d\n",*xPtr); //prints value of x
+	(*xPtr)++;	//Increments value of x post fix
+	printf("Value of x  : %d\n",*xPtr);	
+
+	++*xPtr;	//Increments value of x pre fix
+	printf("Value of x  : %d\n",*xPtr);		
+	
+	*++xPtr; //increments address value of xPtr 
+	printf("Value of x  : %d\n",*xPtr);		//now assign a garbage value	
+	return 0;	
+}
+
+/////////////////////////////////////////////////////////////////
+	Method Call by Value and Call by Reference
+/////////////////////////////////////////////////////////////////
+Q91
+#include <stdio.h>
+void increment(int x);
+int main(){
+
+	int x=100;
+	printf("x : %d\n",x);
+	
+	increment(x);	
+	printf("x : %d\n",x);
+			
+	return 0;
+}
+
+void increment(int x){
+	x++;
+	printf("In method x : %d\n",x);
+}	
+
+/////////////////////////////////////////////////////////////////
+Q92	Call By Reference
+#include <stdio.h>
+void increment(int *x);
+int main(){
+
+	int x=100;
+	printf("x : %d\n",x);
+	
+	increment(&x);	
+	printf("x : %d\n",x);
+			
+	return 0;
+}
+
+void increment(int *x){
+	++*x;
+	printf("In method x : %d\n",*x);
+}	
+
+/////////////////////////////////////////////////////////////////
+Q93	Call by Value
+	=============
+#include <stdio.h>
+void swap(int x, int y);
+int main(){
+	int x=100,y=200;
+	
+	printf("x, y : %d, %d\n",x,y);
+	
+	swap(x,y);	
+	printf("x, y : %d, %d\n",x,y);
+			
+	return 0;
+}
+
+void swap(int x,int y){
+	int temp=x;
+	x=y;
+	y=temp;
+	printf("x, y : %d, %d\n",x,y);
+}	
+
+/////////////////////////////////////////////////////////////////
+Q94	Call By Reference
+	=================
+	
+#include <stdio.h>
+void swap(int *x, int *y);
+int main(){
+	int x=100,y=200;
+	
+	printf("x, y : %d, %d\n",x,y);
+	
+	swap(&x,&y);	
+	printf("x, y : %d, %d\n",x,y);
+			
+	return 0;
+}
+
+void swap(int *x,int *y){
+	int temp=*x;
+	*x=*y;
+	*y=temp;
+	printf("x, y : %d, %d\n",*x,*y);
+}	
+
+/////////////////////////////////////////////////////////////////
+Q95
+#include <stdio.h>
+int main(){
+	int x=100;
+	double *dptr;
+	dptr=&x; //Incompatible pointer type	 
+			
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q96
+#include <stdio.h>
+int main(){
+	int *xptr;
+	*xptr=100; //runtime error
+	//printf("%p \n",xptr);		
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q97
+#include <stdio.h>
+int main(){
+	int *xptr;
+	xptr=100;
+	printf("%p \n",xptr);	
+	
+	
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q98
+#include <stdio.h>
+int main(){
+	int *xptr;
+	xptr=(void *)100; 
+	printf("%p \n",xptr);
+	
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q99
+#include <stdio.h>
+int main(){
+	int* p1;
+	int *p2;	//same declaration
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q100
+#include <stdio.h>
+int main(){
+	int *p1,*p2;	//p1, p2 are pointers type int
+	
+	int* xptr,x,y; //xptr is a pointer and x,y are variables
+	
+	x=100,y=200;
+	
+	p1=&x;
+	xptr=&x;
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q101	Constant in C
+
+#include <stdio.h>
+int main(){
+	const int x=100;
+	
+	printf("x : %d \n",x);
+	
+	x=200; //x is a constant - cannot re-assign
+		
+	printf("x : %d \n",x);
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q102
+
+#include <stdio.h>
+int main(){
+	int x=100;
+	int *xptr;
+	xptr=&x;
+	
+	printf("x : %d \n",x);
+	
+	*xptr=200;	//modifying value of x
+	printf("x : %d \n",x);
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q103
+#include <stdio.h>
+int main(){
+	const int  x=100;
+
+	printf("x : %d \n",x);
+	//x=200; //cannot re-assign a integer
+	
+	int *xptr;
+	xptr=&x; //Only warning but can modify
+	*xptr=200;	//Legal
+	printf("x : %d \n",x);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q104
+	int const *xptr
+	===============
+
+#include <stdio.h>
+int main(){
+	int x=100;
+	const int *xptr; //Declares a pointer whose data cannot be changed through the pointer:
+	xptr=&x;
+	
+	printf("x : %d \n",x);
+	
+	*xptr=200; //cannot re-assign using pointer 'xptr' becoz 'xptr is a constant pointer 
+	
+	x=200; //this is ok...that 'x' is not a constant value
+	printf("x : %d \n",x);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q105
+#include <stdio.h>
+int main(){
+	int x=100;
+	int  *const xptr=&x; // or int* const xptr
+
+	*xptr=200; //can modify the value
+	
+	int y=200;
+	xptr=&y; //pointer 'xptr' is a constant, cannot re-assign an address of int
+
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q106
+#include <stdio.h>
+int main(){
+	const int x=100;
+	int const y=200; //they are both equivalent. For a pointer type though they are both valid code but not equivalent. 	
+	
+
+	int a=10,b=20;
+	const int * xptr=&a;
+	int* const yptr=&b; 
+	
+	*yptr=2000;
+	*xptr=1000; //Illegal
+	
+	int c=1,d=2;
+	
+	xptr=&c;
+	yptr=&d;	//Illegal
+	
+	
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q107
+#include <stdio.h>
+int main(){
+	int x=100;
+	int  const *xptr;
+	xptr=&x;
+	
+	//++*xptr; //but *++xptr is legal ->increments pointer address
+	
+	int y=200;
+	xptr=&y; //pointer 'xptr' is not a constant	 
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q108
+#include <stdio.h>
+int main(){
+	const int  x=100;
+
+	printf("x : %d \n",x);
+	//x=200; //cannot re-assign a integer
+	
+	int const *xptr;
+	xptr=&x; //Now this is posible
+	*xptr=300; //Error
+	printf("x : %d \n",x);
+
+	return 0;
+}
+/////////////////////////////////////////////////////////////////
+Q109
+#include <stdio.h>
+int main(){
+	int x=100;
+	int *xptr;
+	xptr=&x;
+	printf("&x    : %p\n",xptr);
+	printf("&xptr : %p\n",&xptr);	
+	
+	int **ptr; //**ptr is pointer variable which can point to an integer pointer
+	ptr=&xptr;	
+	printf("&xptr : %p\n",ptr); //prints the address of pointer 'xptr'
+	
+	printf("x : %d\n",x);
+	printf("x : %d\n",*xptr);
+	printf("x : %d\n",**ptr);
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q110	Arrays with Pointers
+
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	printf("x : %p\n",x);
+	
+	int *xptr;
+	xptr=x;
+	printf("xptr : %p\n",xptr);
+	
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////////
+Q111
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	printf("x     : %p\n",x);
+	printf("&x[0] : %p\n",&x[0]);
+	
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////s
+Q112
+#include <stdio.h>
+int main(){
+	int x[4]={10,20,30,40}; //x is a pre-defined integer pointer and it has 
+
+	printf("x %p\n",x);		//prints Address of first element
+	printf("x %p\n",&x);	//prints Address of first element	
+	printf("x %p\n",&x[0]);	//prints Address of first element
+	return 0;
+}
+//////////////////////////////////////////////////////////////////////////////s
+Q113
+
+#include <stdio.h>
+int main(){
+	int x[4]={10,20,30,40};
+
+	int *p;
+	p=x;	//Assigning address of the first element to pointer p
+			//p=&x; p=&x[0]; get same results
+
+	printf("Address x %p\n",x);		//prints Address of first element
+	printf("Address x %p\n",&x);	//prints Address of first element	
+	printf("Address x %p\n",&x[0]);	//prints Address of first element
+	
+	printf("Address x %p\n",p);
+	
+		
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q114
+#include <stdio.h>
+int main(){
+	int x[4]={10,20,30,40};
+
+	int *p;
+	p=x;	//Assigning address of the first element to pointer p
+	
+	printf("Value of  x %d\n",*x);	//prints the value of the first element
+	printf("Value of  x %d\n",*p);	//prints the value of the first element
+	printf("Value of  x %d\n",x[0]);//prints the value of the first element
+	printf("Value of  x %d\n",p[0]);//prints the value of the first element	
+	return 0;
+}
+//////////////////////////////////////////////////////////////////////////////s
+Q115
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	printf("&x[0]     : %p\n",(x+0));//
+	printf("&x[1]     : %p\n",(x+1));//
+	printf("&x[2]     : %p\n",(x+2));//
+	printf("&x[3]     : %p\n",(x+3));//
+	printf("&x[4]     : %p\n",(x+4));//
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////s
+Q116
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	printf("x[0]     : %d\n",*(x+0));//
+	printf("x[1]     : %d\n",*(x+1));//
+	printf("x[2]     : %d\n",*(x+2));//
+	printf("x[3]     : %d\n",*(x+3));//
+	printf("x[4]     : %d\n",*(x+4));//
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q117
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	printf("x[0]     : %d\n",x[0]);//
+	printf("x[1]     : %d\n",x[1]);//
+	printf("x[2]     : %d\n",x[2]);//
+	printf("x[3]     : %d\n",x[3]);//
+	printf("x[4]     : %d\n",x[4]);//
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q118
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	int *xptr=x;  //xptr=&x
+	
+	int i;
+	for(i=0;i<5;i++){
+		printf("&x[%d] : %p ==>x[%d] :%d\n",i,(xptr+i),i,*(xptr+i));
+	}
+
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q119
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	int *xptr=x;  //xptr=&x
+	
+	int i;
+	for(i=0;i<5;i++){
+		printf("&x[%d] : %p ==>x[%d] :%d\n",i,&xptr[i],i,xptr[i]);
+	}
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////s
+Q120
+#include <stdio.h>
+int main(){
+	int x[5]={10,20,30,40,50};
+	
+	int *xptr=&x[2];
+
+	printf("x[2] : %d\n",xptr[0]); //*(xptr)
+	printf("x[1] : %d\n",xptr[-1]); //*(xptr-1)
+	printf("x[0] : %d\n",xptr[-2]); //*(xptr-2)
+	
+	printf("x[3] : %d\n",xptr[1]); //*(xptr+1)
+	printf("x[4] : %d\n",xptr[2]); //*(xptr+2)
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q121
+#include <stdio.h>
+int main( void ){
+	int b[] = { 10, 20, 30, 40 };
+	int *bPtr = b; 
+	int i; 
+	int offset; 
+	
+	printf( "Array b printed with:\nArray subscript notation\n" );
+	for ( i = 0; i < 4; i++ ) {
+		printf( "b[ %d ] = %d\n", i, b[ i ] );
+	}
+	
+	printf( "\nPointer/offset notation where\nthe pointer is the array name\n" );
+	for ( offset = 0; offset < 4; offset++ ) {
+		printf( "*( b + %d ) = %d\n", offset, *( b + offset ) );
+	}
+	
+	printf( "\nPointer subscript notation\n" );	
+	for ( i = 0; i < 4; i++ ) {
+		printf( "bPtr[ %d ] = %d\n", i, bPtr[ i ] );
+	} 
+	
+	
+	printf( "\nPointer/offset notation\n" );
+	
+	for ( offset = 0; offset < 4; offset++ ) {
+		printf( "*( bPtr + %d ) = %d\n", offset, *( bPtr + offset ) );
+	} 
+	return 0; 
+} 
+
+
+/////////////////////////////////////////////////////////////////////
+Q121
+#include <stdio.h>
+void printArray(int ar[]); //define 'int ar[]' is an int pointer
+int main(){
+	int x[5]={123,456,789,444,555};
+	printArray(x); 
+	printArray(&x[0]);
+	printArray(&x); //warning but this is ok
+	
+	int *p;
+	p=x;
+	printArray(p);
+	return 0;
+}
+
+void printArray(int ar[]){
+	int i;
+	for(i=0;i<5;i++){
+		printf("%d ",ar[i]);
+	}
+	printf("\n");
+}
+
+/////////////////////////////////////////////////////////////////////
+Q122
+#include <stdio.h>
+void printArray(int *p); //'p' is a pointer to point int
+int main(){
+	int x[5]={123,456,789,444,555};
+	printArray(x); 
+	printArray(&x[0]);
+	//printArray(&x); //warning but this is ok
+	
+	int *p;
+	p=x;
+	printArray(p);
+	return 0;
+}
+
+void printArray(int *p){
+	int i;
+	for(i=0;i<5;i++){
+		printf("%d ",p[i]);
+	}
+	printf("\n");
+}
+
+/////////////////////////////////////////////////////////////////////
+Q123	Bubble Sorting
+#include<stdio.h>
+#include<stdlib.h>
+
+void readArray(int array[],int length);
+void sortArray(int array[],int length);
+void printArray(int array[], int length);
+
+int main(){
+	const int SIZE=10;
+	int x[SIZE];
+	
+	readArray(x,SIZE);
+	printArray(x,SIZE);
+	sortArray(x,SIZE);
+	printArray(x,SIZE);
+
+	return 0;
+}
+void readArray(int array[],int length){
+	int i;
+	for(i=0;i<length;i++){
+		int a=rand()%100+1;
+		array[i]=a;
+	}
+}
+
+void sortArray(int array[],int length){
+	int a;
+	for(a=9;a>0;a--){	
+		int i;
+		for(i=0;i<a;i++){
+			if(array[i]>array[i+1]){
+				int temp=array[i];
+				array[i]=array[i+1];
+				array[i+1]=temp;	
+			}
+		}
+	}
+}	
+
+void printArray(int array[], int length){
+	int i;
+	for(i=0;i<length;i++){
+		printf("%d,",array[i]);
+	}	
+	printf("\b\b\n");
+}
+
+/////////////////////////////////////////////////////////////////////
+Q124	From Q123 Using pointers
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void swap(int *x,int *y);
+void readArray(int *array,int length);
+void sortArray(int *array,int length);
+void printArray(int *array, int length);
+
+int main(){
+	const int SIZE=10;
+	int x[SIZE];
+	
+	readArray(x,SIZE);
+	printArray(x,SIZE);
+	sortArray(x,SIZE);
+	printArray(x,SIZE);
+
+	return 0;
+}
+void readArray(int *array,int length){
+	int i;
+	for(i=0;i<length;i++){
+		int a=rand()%100+1;
+		array[i]=a;
+	}
+}
+
+void sortArray(int *array,int length){
+	int a;
+	for(a=9;a>0;a--){	
+		int i;
+		for(i=0;i<a;i++){
+			if(array[i]>array[i+1]){
+				swap(&array[i],&array[i+1]);
+			}
+		}
+	}
+}	
+
+void printArray(int *array, int length){
+	int i;
+	for(i=0;i<length;i++){
+		printf("%d,",array[i]);
+	}	
+	printf("\b\b\n");
+}
+void swap(int *x,int *y){
+	int temp=*x;
+	*x=*y;
+	*y=temp;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q125
+#include <stdio.h>
+void incrementArray(int const *p);
+int main(){
+	int x[5]={123,456,789,444,555};
+	incrementArray(x); 
+	return 0;
+}
+
+void incrementArray(int const *p){
+	int i;
+	
+	for(i=0;i<5;i++){
+		p[i]+=1000;	//Illegal
+	}	
+	
+}
+
+/////////////////////////////////////////////////////////////////////
+Q126	2D Arrays
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+
+	printf("x %p\n",x);
+	printf("x %p\n",*x);
+	printf("x %p\n",x[0]);	
+	printf("x %p\n",&x[0]);
+	printf("x %p\n",&x[0][0]);
+		
+	return 0;
+}
+/////////////////////////////////////////////////////////////////////
+Q127
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+
+	printf("x %d\n",x[0][0]);
+	printf("x %d\n",*x[0]);
+	printf("x %d\n",**x);	
+		
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q128
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	
+	int *p;	
+	p=*x;
+	
+	int i;
+	for(i=0;i<12;i++){
+		printf("x[%d] : %d\n",i,*(p+i));
+	}
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q129
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	
+	int i;
+	for(i=0;i<12;i++){
+		printf("x[%d] : %d\n",i,*(*x+i));
+	}
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q130
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("x[%d][%d] : %d\n",i,j,x[i][j]);
+		}
+	}
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////////////
+Q131	
+#include <stdio.h>
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("%d ",x[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+///////////////////////////////////////////////////////////////////
+Q132	Error
+#include <stdio.h>
+void printArray(int array[][]);
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	printArray(x);
+	return 0;
+}
+
+void printArray(int array[][]){
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("%d ",array[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
+
+/////////////////////////////////////////////////////////////////
+Q133	Error
+#include <stdio.h>
+void printArray(int **array);
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	int *p;
+	p=*x; //Legal
+	
+	printArray(x); //Ilegal
+	return 0;
+}
+
+void printArray(int **array){
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("%d ",array[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
+
+///////////////////////////////////////////////////////////////////
+Q134
+#include <stdio.h>
+void printArray(int array[4][3]);
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	int *p;
+	p=*x; //Legal
+	
+	printArray(x); //Ilegal
+	return 0;
+}
+
+void printArray(int array[4][3]){
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("%d ",array[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
+
+/////////////////////////////////////////////////////////////////////////
+Q135
+#include <stdio.h>
+void printArray(int array[][3]);
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	int *p;
+	p=*x; //Legal
+	
+	printArray(x); //Ilegal
+	return 0;
+}
+
+void printArray(int array[4][3]){
+	int i;
+	for(i=0;i<4;i++){
+		int j=0;
+		for(j=0;j<3;j++){
+			printf("%d ",array[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
+
+///////////////////////////////////////////////////////////////////////
+Q136
+#include <stdio.h>
+void printArray(int *array);
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	int *p;
+	p=*x; //Legal
+	
+	printArray(p);//*x
+	return 0;
+}
+
+void printArray(int *array){
+	int i;
+	for(i=0;i<12;i++){
+		printf("%d ",array[i]);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////
+Q137
+#include <stdio.h>
+
+int main(){
+	int x[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	
+	printf("%d\n",sizeof(x)); //prints 40 bytes (4x3x4(bytes)) //1 byte==>8bits
+	printf("%d\n",sizeof(int)); //prints 4 bytes (32bits)
+	return 0;
+}
+
+///////////////////////////////////////////////////////////////////////
+Q138
+#include <stdio.h>
+
+int main(){
+	int x[4]={1,2,3,4};
+	
+	printf("%d\n",sizeof(x)); //prints 16 bytes ()
+	printf("%d\n",sizeof(int)); //prints 4 bytes (32bits)
+	return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////
+Q139
+
+////////////////////////////////////////////////////////////////////////
+Q140
+#include<stdio.h>
+#include<stdlib.h>
+
+const int no_st=10;
+const int no_sub=4;
+
+void readMarks(int x[][no_sub],int st,int sub);
+void printMarks(int x[][no_sub],int st,int sub);
+void findStMax(int stMax[],int no_st);
+void findStMin(int stMin[],int no_st);
+void findStTotal(int stTotal[],int no_st);
+void findStAvg(double stAvg[],int no_st);
+void findStGrade(char stGrade[],int no_st);
+
+int max(int array[], int length);
+int min(int array[], int length);
+int total(int array[], int length);
+double avg(int total, int length);
+
+
+int main(){
+	int stMarks[no_st][no_sub];
+	int stMax[no_st];
+	int stMin[no_st];
+	int stTotal[no_st];
+	double stAvg[no_st];
+	char stGrade[no_st];
+	
+	int teaMax[no_sub];
+	int teaMin[no_sub];
+	int teaTotal[no_sub];
+	double teaAvg[no_sub];
+	char teaGrade[no_sub];
+	
+	
+	readMarks(stMarks,no_st,no_sub);
+				
+	readMarks(stMarks,no_st,no_sub);
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////
+	String & Characters
+////////////////////////////////////////////////////////////////////////////
+Q141
+#include <stdio.h>
+int main(){
+	char ch='A'; //8bits
+	printf("%c",ch);
+	return 0;
+}
+
+///////////////////////////////////////////////////////////////////////////
+Q142
+#include <stdio.h>
+int main(){
+	char ch;
+	printf("Input a char : ");
+	scanf("%c",&ch);
+	
+	printf("%c\n",ch); 
+	return 0;
+}
+///////////////////////////////////////////////////////////////////////////
+Q143
+#include <stdio.h>
+int main(){
+	char ch;
+	printf("Input a char : ");
+	scanf("%c",&ch);
+	
+	printf("%c : %d\n",ch,ch); 
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////
+Q144	"getchar()"	Inputs the next character from the standard input and returns 
+#include <stdio.h>
+int main(){
+	char ch;
+	printf("Input a char : ");
+	ch=getchar(); //stdin
+	
+	printf("%c : %d\n",ch,ch); 
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////
+Q145	int putchar(int c)
+		==================
+		Prints the character stored in c and returns it as an integer.
+		
+#include <stdio.h>
+int main(){
+	char ch;
+	printf("Input a char : ");
+	ch=getchar(); //stdin
+	putchar(ch); //stdio
+	printf(" : %d\n",ch); 
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+	Character-Handling Library 	#include <ctype.h>
+/////////////////////////////////////////////////////////////////
+Q146	isdigit(ch)
+	==========	
+	Returns a true value if c is a digit and 0 (false) otherwise.
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+	char ch='9';
+	
+	if(isdigit(ch)){
+		printf("ch is a digit..");
+	}else{
+		printf("ch is not a digit..");
+	}
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q147	isalpha(ch)
+		==========
+		Returns a true value if c is a letter and 0 otherwise.
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+	char ch='A';
+	
+	if(isalpha(ch)){
+		printf("ch is a letter..");
+	}else{
+		printf("ch is not a letter..");
+	}
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q148	int isalnum( int c )
+	====================
+	Returns a true value if c is a digit or a letter and 0 otherwise.
+
+
+/////////////////////////////////////////////////////////////////
+Q149	int isxdigit( int c )	
+	=====================
+
+/////////////////////////////////////////////////////////////////
+Q150	int islower(ch)	
+	===============
+	Returns a true value if c is a lowercase letter and 0 otherwise.
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+	char ch='a';
+	
+	if(islower(ch)){
+		printf("ch is a lower case letter..");
+	}else{
+		printf("ch is a upper case letter..");
+	}
+	
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q151	int isupper( int c )
+	====================
+	Returns a true value if c is an uppercase letter and 0 otherwise.
+
+	
+/////////////////////////////////////////////////////////////////
+Q152	int tolower( int c )
+		====================
+		If c is an uppercase letter, tolower returns c as a lowercase letter. 
+		Otherwise, tolower returns the argument unchanged.
+
+
+/////////////////////////////////////////////////////////////////
+Q153	int toupper( int c )
+	====================
+	If c is a lowercase letter, toupper returns c as an uppercase letter. 
+	Otherwise, toupper returns the argument unchanged.
+	
+
+/////////////////////////////////////////////////////////////////
+Q154	int isspace( int c )
+	====================
+	Returns a true value if c is a white-space character—newline ('\n'), space (' '), form feed ('\f'), carriage return ('\r'),
+	horizontal tab ('\t') or vertical tab ('\v')—and 0 otherwise.
+
+
+/////////////////////////////////////////////////////////////////
+Q155	int iscntrl( int c )
+	====================
+	Returns a true value if c is a control character and 0 otherwise.
+	
+
+/////////////////////////////////////////////////////////////////
+Q156	int ispunct( int c )		
+	====================
+	Returns a true value if c is a printing character other than a space, a digit, or a letter and returns 0 otherwise.
+
+
+/////////////////////////////////////////////////////////////////
+Q157	int isprint( int c )
+	====================
+	Returns a true value if c is a printing character including a space (' ') and returns 0 otherwise.
+
+
+/////////////////////////////////////////////////////////////////
+Q158	int isgraph( int c )
+	====================
+	Returns a true value if c is a printing character other than a
+
+
+/////////////////////////////////////////////////////////////////
+	String Represntation in C
+
+
+/////////////////////////////////////////////////////////////////
+Q159	String as a character array
+		===========================
+		
+#include <stdio.h>
+int main(){
+	char name[]="Niroth";
+	printf("Name : %s\n",name);
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q160	
+#include <stdio.h>
+int main(){
+	char name[]="Niroth"; //
+	printf("Name : %s\n",name);
+	printf("size of name : %d\n",sizeof(name)); //7 bytes (56bits)
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q161
+#include <stdio.h>
+int main(){
+	char name[]="Niroth"; //{'N','i','r','o','t','h','\0'}
+	printf("Name : %s\n",name);
+	for(int i=0;i<7;i++){	//ok with c99
+		printf("nanme[%d] : %d\n",i,name[i]);
+	}
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q162
+#include <stdio.h>
+int main(){
+	char name[]="Niroth"; //{'N','i','r','o','t','h','\0'}
+	
+	int i=0;
+	while(name[i]!=0){ //'\0'
+		printf("%c",name[i++]);
+	}
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q163
+#include <stdio.h>
+int main(){
+	char name[6]="Niroth";
+	printf("Your name : %s\n",name);
+	
+	printf("Size of name %d \n",sizeof(name)); //prints 6 bytes
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q164
+#include <stdio.h>
+int main(){
+	char name[6]="Niroth";
+	printf("Your name : %s\n",name);
+	
+	for(int i=0;i<7;i++){
+		printf("name[%d] : %d\n",i,name[i]);
+	}
+	printf("name[7] : %d\n",name[7]);
+	return 0;
+}
+
+	
+/////////////////////////////////////////////////////////////////
+Q165
+#include <stdio.h>
+int main(){
+	char name[6]="Niroth"; 
+	
+	int i=0;
+	while(name[i]!=0){ //'\0'
+		printf("%c",name[i++]);
+	}
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q166	String char array with Pointers
+		===============================
+#include <stdio.h>
+int main(){
+	char name[]="Niroth";
+	char *nameptr;
+	nameptr=name;
+	
+	printf("Name : %s\n",nameptr);
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q167
+#include <stdio.h>
+int main(){
+	char *nameptr="Niroth";//This definition creates pointer variable nirothPtr that points to the string "Niroth" somewhere in memory.
+		
+	printf("Name : %s\n",nameptr);
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q168
+#include <stdio.h>
+int main(){
+	char *nameptr="Niroth";
+	
+	int i=0;
+	while(nameptr[i]!=0){		
+		printf("%c",nameptr[i++]);
+	}
+	return 0;
+}
+	
+/////////////////////////////////////////////////////////////////
+Q169	Reading a String
+		================
+Read Word"
+=========
+
+#include <stdio.h>
+int main(){
+	char name[40];
+	printf("Input your name : ");
+	scanf("%s",name); //&name
+	//Variable word is an array, that means a pointer,so the & is not needed with argument word
+	//Read only one word
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+		
+/////////////////////////////////////////////////////////////////
+Q170	Runtime Error
+#include <stdio.h>
+int main(){
+	char *name;
+	printf("Input your name : ");
+	scanf("%s",name); 
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+		
+/////////////////////////////////////////////////////////////////
+Q171
+#include <stdio.h>
+int main(){
+	char n[40];
+	char *name;
+	name=n;
+	printf("Input your name : ");
+	scanf("%s",name); 
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+		
+/////////////////////////////////////////////////////////////////
+Q172	Read String  line(\n)
+#include <stdio.h>
+int main(){
+	char name[40];
+	
+	printf("Input your name : ");
+	gets(name);
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+		
+/////////////////////////////////////////////////////////////////
+Q173	Read a new line
+#include <stdio.h>
+int main(){
+	char name[40];
+	
+	printf("Input your name : ");
+	scanf("%[^\n]",name);
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+
+		
+/////////////////////////////////////////////////////////////////
+Q174	Read a line	
+		===========
+#include <stdio.h>
+int main(){
+	char name[40];
+	
+	printf("Input your name : ");
+	fgets(name,25,stdin);	 //25-->size, stdin-->standard input (
+	
+	printf("Your name : %s\n",name);
+	return 0;
+}
+		
+/////////////////////////////////////////////////////////////////
+Q175 	String Example (find length)
+#include <stdio.h>
+int strlength(char *name);
+
+int main(){
+	char name[40];
+	
+	printf("Input your name : ");
+	gets(name);
+	
+	int x=strlength(name);
+	
+	printf("Length of name : %d\n",x);
+	return 0;
+}
+int strlength(char *name){
+	int length=0;
+	while(name[length++]!=0);
+	return length-1;
+}
+		
+//////////////////////////////////////////////////////////////////////
+	String Functions	
+	String-Conversion Functions - These functions convert strings of digits to integer and floating-point values
+	 
+//////////////////////////////////////////////////////////////////////	
+Q176	double atof( const char *nPtr )
+		-------------------------------
+		Converts the string nPtr to double.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char *salaryText="43233.123";
+	double salary=atof(salaryText); 
+	printf("%f\n",salary);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q177	int atoi( const char *nPtr )
+		----------------------------
+		Converts the string nPtr to int.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char *ageText="1122";
+	int age=atoi(ageText); 
+	printf("%d\n",age);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q178 	long atol( const char *nPtr )
+		-----------------------------
+		Converts the string nPtr to long int.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char *timeMillisText="343445645454433L";
+	long long  currentTime=atoll(timeMillisText);  //atol() takes type long but long 32bits in C
+	printf("%Ld\n",currentTime);
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q179	double strtod( const char *nPtr, char **endPtr )
+		------------------------------------------------
+		The string contains the character sequence to be converted to double.The pointer is assigned the location of the first character after the converted portion of the
+		string. 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char *salaryText="43233.123";
+	char *salayPointer; 
+	double salary=strtod(salaryText,&salayPointer); 
+	
+	printf("Salary as double :%f\n",salary);
+	printf("Salary as text   :%s\n",salaryText);
+	return 0;
+}
+///////////////////////////////////////////////////////////////////
+Q180	long strtol( const char *nPtr, char **endPtr, int base )
+		--------------------------------------------------------	
+		Converts the string nPtr to long.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char *binaryShortMaxText="0111111111111111";
+	char *maxShortPtr;
+	long maxShort=strtol(binaryShortMaxText, &maxShortPtr,2);
+
+	printf("Max of short : %ld\n",maxShort);
+	printf("Max of short : %s\n",maxShortPtr);
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////
+Q181	unsigned long strtoul( const char *nPtr, char **endPtr, int base )
+		------------------------------------------------------------------
+		Converts the string nPtr to unsigned long.
+	
+
+
+/////////////////////////////////////////////////////////////////
+	Sting manipulation string.h
+	===========================
+//////////////////////////////////////////////////////////////////
+Q181	char *strcpy( char *s1, const char *s2 )
+		========================================
+		Copies string s2 into array s1. The value of s1 is returned.
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+	char x[] = "Happy Birthday to You";
+	char y[ 25 ];
+
+	strcpy( y, x );
+		
+	printf("%s\n",y);
+	return 0; 
+} 
+
+/////////////////////////////////////////////////////////////////
+Q182	char *strncpy( char *s1, const char *s2, size_t n )
+		===================================================
+		Copies at most n characters of string s2 into array s1. The value of s1 is returned.
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+	char x[] = "Happy Birthday to You";
+	char z[ 15 ];
+	strncpy( z, x, 14);
+
+	z[14]='\0';
+	printf("%s\n",z);
+	return 0; 
+} 
+
+/////////////////////////////////////////////////////////////////
+Q183	char *strcat( char *s1, const char *s2 )
+		========================================
+		Appends string s2 to array s1. The first character of s2 overwrites the terminating null character of s1. The value of s1 is returned.
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+	char x[20] = "Happy";
+	char y[]= " Birthday to You";
+	
+	strcat(x,y);
+
+	printf("%s\n",x);
+	return 0; 
+} 
+
+/////////////////////////////////////////////////////////////////
+Q184	char *strncat( char *s1, const char *s2, size_t n )
+		===================================================
+		Appends at most n characters of string s2 to array s1. The first character of s2 overwrites the terminating null character of s1. The value of s1 is returned.
+
+
+/////////////////////////////////////////////////////////////////
+Q185	int strcmp( const char *s1, const char *s2 )
+		============================================
+		Compares the string s1 with the string s2. The function returns 0,less than 0 or greater than 0 if s1 is equal to, less than or greater
+		than s2, respectively.
+
+
+/////////////////////////////////////////////////////////////////
+Q186	int strncmp( const char *s1, const char *s2, size_t n )
+		=======================================================
+		Compares up to n characters of the string s1 with the string s2.The function returns 0, less than 0 or greater than 0 if s1 is equal
+		to, less than or greater than s2, respectively.
+
+////////////////////////////////////////////////////////////////////
+	Search Functions	
+/////////////////////////////////////////////////////////////////	
+Q187	char *strchr( const char *s, int c )
+		====================================
+		Locates the first occurrence of character c in string s. If c is found, a pointer to c in s is returned. Otherwise, a NULL pointer is returned.
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+	const char *string = "This is a test"; 
+	char character1 = 'a'; 
+	char character2 = 'z'; 
+	
+
+	if ( strchr( string, character1 ) != NULL ) {
+		printf( "\'%c\' was found in \"%s\".\n",character1, string );
+	} else {
+		printf( "\'%c\' was not found in \"%s\".\n",character1, string );	
+	} 
+	
+	if ( strchr( string, character2 ) != NULL ) {
+		printf( "\'%c\' was found in \"%s\".\n",character2, string );
+	} else { 
+		printf( "\'%c\' was not found in \"%s\".\n",character2, string );
+	}
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////
+Q188	char *strrchr( const char *s, int c )
+		=====================================
+		Locates the last occurrence of c in string s. If c is found, a pointer to c in string s is returned. Otherwise, a NULL pointer is returned.
+	
+
+/////////////////////////////////////////////////////////////////
+Q189	char *strstr( const char *s1, const char *s2 )
+		==============================================
+		Locates the first occurrence in string s1 of string s2. If the string is found, a pointer to the string in s1 is returned. Otherwise, a NULL pointer is returned.
+
+
+/////////////////////////////////////////////////////////////////
+Q190	char *strpbrk( const char *s1, const char *s2 )
+		==============================================
+		Locates the first occurrence in string s1 of any character in string s2. If a character from string s2 is found, a pointer to the character in string s1 is returned. Otherwise, a NULL pointer is returned.
+
+/////////////////////////////////////////////////////////////////
+Q191	size_t strcspn( const char *s1, const char *s2 )
+		================================================
+		Determines and returns the length of the initial segment of string s1 consisting of characters not contained in string s2.
+
+#include <stdio.h>
+#include <string.h>
+int main(){
+	const char *string1 = "The value is 3.14159";
+	const char *string2 = "1234567890";
+	printf("String1 = %s\n",string1); 
+	printf("String2 = %s\n",string2); 
+	printf("\n");
+	printf("The length of the initial segment of string1\ncontaining no characters from string2= ");
+	printf( "%u\n",strcspn( string1, string2 ) );
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////
+Q192	size_t strspn( const char *s1, const char *s2 )
+		===============================================
+		Determines and returns the length of the initial segment of string s1 consisting only of characters contained in string s2.
+
+////////////////////////////////////////////////////////////////////
+String Extra
+
+
+#include<stdio.h>
+
+int main(){
+	char s1[5]="abcde";
+	char s2[5]="12345";
+
+	printf("%s\n",s2);
+	return 0;
+}
+//=======================================================================
+#include<stdio.h>
+
+int main(){
+	char s1[5]="abcde";
+	char s2[6]="12345";
+
+	printf("%s\n",s2);
+	printf("%d\n",s2[5]);
+	return 0;
+}
+
+-=====================================================================
+#include<stdio.h>
+
+int main(){
+	char s1[10];
+	for(int i=0;i<10;i++){
+		printf("%d\n",s1[i]);
+	}
+	return 0;
+}
+
+=========================================================================
+#include<stdio.h>
+
+int main(){
+	char s1[10];
+	for(int i=0;i<6;i++){
+		//printf("%d\n",s1[i]);
+		s1[i]=65+i;
+	}
+	printf("%s\n",s1);
+	return 0;
+}
+
+====================================================================
+#include<stdio.h>
+
+int main(){
+	char s1[10];
+	for(int i=0;i<6;i++){
+		//printf("%d\n",s1[i]);
+		s1[i]=65+i;
+	}
+	s1[6]='\0';
+	printf("%s\n",s1);
+	return 0;
+}
+//=================================================================
+#include<stdio.h>
+
+int main(){
+	char *s1="12345";
+	
+	printf("%s\n",s1);
+
+	return 0;
+}
+
+//=========================================================================++++
+#include<stdio.h>
+
+int main(){
+	char s[40];
+	char *s1=s;
+	s1="12345";
+	
+	printf("%s\n",s1);
+
+	return 0;
+}
+
+//=====================================================================
+#include<stdio.h>
+
+int main(){
+	char s[40];
+	char *s1=s;
+	
+	gets(s1);
+	
+	printf("%s\n",s1);
+
+	return 0;
+}
+
+//-======================================================================
+#include<stdio.h>
+
+int main(){
+	//char s[40];
+	
+	char *s1;
+	gets(s1);
+	printf("%s\n",s1);
+	return 0;
+}
+
+//=======================================================================
+#include<stdio.h>
+
+int main(){
+	int x;
+	int *p;
+	p=&x;
+
+	scanf("%d",p);
+	printf("%d\n",x);
+	return 0;
+}
+
+//===================================================================
+#include<stdio.h>
+
+int main(){
+	//int x;
+	
+	int *p;
+	scanf("%d",p);
+	printf("%d\n",*p);
+	return 0;
+}
+
+//======================================================================
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+	//int x;
+	
+	int *p;
+	p=malloc(sizeof(int));
+	scanf("%d",p);
+	printf("%d\n",*p);
+	return 0;
+}
+
+
+//===============================================================
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	//char s[40];
+	
+	char *s1;
+	s1=malloc(sizeof(char));
+	gets(s1);
+	printf("%s\n",s1);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+	Structurs
+/////////////////////////////////////////////////////////////////////
+Q193
+#include<stdio.h>
+#include<stdlib.h>
+struct customer{
+	int code;
+	double salary;	
+};
+
+int main(){
+	struct customer c1;
+	c1.code=1001;
+	c1.salary=34000;
+	
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+
+/////////////////////////////////////////////////////////////////////
+Q194
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+	struct customer{
+		int code;
+		double salary;	
+	};
+	
+	struct customer c1;
+	
+	c1.code=1001;
+	c1.salary=34000;
+	
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+
+/////////////////////////////////////////////////////////////////////
+Q195
+#include<stdio.h>
+
+struct customer{
+	int code;
+	double salary;	
+};
+
+int main(){
+	struct customer c1={1001,34000};
+	//c1.code=1001;
+	//c1.salary=34000;
+	
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q196
+#include<stdio.h>
+
+struct customer{
+	int code;
+	double salary;	
+}c1,c2;
+
+int main(){
+	c1.code=1001;
+	c1.salary=34000;
+	struct customer c3; //
+	
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q197
+#include<stdio.h>
+
+struct{
+	int code;
+	double salary;	
+}c1,c2;
+
+int main(){
+	c1.code=1001;
+	c1.salary=34000;
+	struct customer c3; //Error
+	
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q198
+#include<stdio.h>
+
+struct{
+	int code;
+	double salary;	
+}; //
+
+int main(){
+	return 0;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q199
+#include<stdio.h>
+
+struct{
+	int code;
+	double salary;	
+}c1; //
+
+int main(){
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q200
+//-----------------------"typedef"---------------------------------
+#include<stdio.h>
+typedef int MyInteger;
+
+int main(){
+	int x;
+	MyInteger y=100;
+	printf("");
+	
+	return 0;
+}
+
+
+
+//--------------------------Using "typedef"---------------------------
+#include<stdio.h>
+
+struct customer{
+	int code;
+	double salary;	
+};
+typedef struct customer Customer;
+int main(){
+	//struct customer c1;
+	Customer c1;
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+ 
+
+/////////////////////////////////////////////////////////////////////
+Q201
+#include<stdio.h>
+
+typedef struct customer{
+	int code;
+	double salary;	
+}Customer;
+
+int main(){
+	struct customer c1;
+	Customer c2;
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q202
+#include<stdio.h>
+
+typedef struct{
+	int code;
+	double salary;	
+}Customer;
+
+int main(){
+	//struct customer c1; //Error
+	Customer c1;
+	printf("Code   : %d\n",c1.code);
+	printf("Salary : %.2f\n",c1.salary);
+	return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q203
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	char name[40];//char *name;
+	double salary;
+}Customer;	
+
+int main(){
+	Customer c1[5];
+	
+	for(int i=0;i<5;i++){
+		printf("Input customer code   : ");
+		scanf("%d",&c1[i].code);
+		getchar();
+		printf("Input customer name   : ");
+		gets(c1[i].name);
+		printf("Input customer salary : ");
+		scanf("%lf",&c1[i].salary);
+	}
+	
+	//print Customer lsit
+	
+	for(int i=0;i<5;i++){
+		printf("%-8d%-20s%10.2f\n",c1[i].code,c1[i].name,c1[i].salary);
+	}
+	
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q204
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+
+int main(){
+	Customer c1;
+	c1.code=1001;
+	c1.salary=34000;
+	
+	Customer c2=c1;
+
+	printf("Code   c1  : %d\n",c1.code);	
+	printf("Salary c1  : %f\n",c2.salary);	
+	
+	printf("Code   c2  : %d\n",c2.code);	
+	printf("Salary c2  : %f\n",c2.salary);		
+
+	c2.code=1002;
+	c2.salary=10000; 	
+
+	printf("Code   c1  : %d\n",c1.code);	
+	printf("Salary c1  : %f\n",c2.salary);	
+	
+	printf("Code   c2  : %d\n",c2.code);	
+	printf("Salary c2  : %f\n",c2.salary);		
+		
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q205	Structure Call by Values
+		========================
+			
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+void readCustomer(Customer c1){
+	printf("Code   : %d\n",c1.code);	
+	printf("Salary : %f\n",c1.salary);		
+	c1.code=1111;
+	c1.salary=33333;
+}
+int main(){
+	Customer c1;
+	c1.code=1001;
+	c1.salary=34000;
+	readCustomer(c1);
+
+	printf("Code   : %d\n",c1.code);	
+	printf("Salary : %f\n",c1.salary);	
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q206	Pointer Structures 
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+
+int main(){
+	Customer c1;
+	Customer *cptr;
+	cptr=&c1;
+	//cptr.code=1001;
+	cptr->code=1001;
+	cptr->salary=340000;
+
+	printf("Code   : %d\n",c1.code);	
+	printf("Salary : %f\n",c1.salary);	
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q207	Runtime Error
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+int main(){
+	Customer *cptr;
+	//cptr.code=1001;
+	cptr->code=1001;
+	cptr->salary=340000;
+
+	printf("Code   : %d\n",cptr->code);	
+	printf("Salary : %f\n",cptr->salary);	
+	return 0;
+} 
+
+
+/////////////////////////////////////////////////////////////////////
+Q208
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+int main(){
+	Customer *cptr;
+	cptr=malloc(sizeof(Customer));
+	cptr->code=1001;
+	cptr->salary=340000;
+
+	printf("Code   : %d\n",cptr->code);	
+	printf("Salary : %f\n",cptr->salary);	
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q209	Structures Call by reference
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+
+void readCustomer(Customer *cptr){
+	cptr->code=1001;
+	cptr->salary=34000;
+}
+
+int main(){
+	Customer c;
+	readCustomer(&c);
+
+	printf("Code   : %d\n",c.code);	
+	printf("Salary : %f\n",c.salary);	
+	return 0;
+} 
+	
+
+/////////////////////////////////////////////////////////////////////
+Q210 
+#include <stdio.h>
+typedef struct customer{
+	int code;
+	double salary;
+}Customer;	
+
+void readCustomer(Customer *cptr){
+	cptr->code=1001;
+	cptr->salary=34000;
+}
+void printCustomer(Customer *cptr){
+	printf("Code   : %d\n",cptr->code);	
+	printf("Salary : %f\n",cptr->salary);		
+}
+int main(){
+	Customer c;
+	readCustomer(&c);
+	printCustomer(&c);
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q211	
+#include <stdio.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	double salary;
+	//Customer c1;	//Illegal
+	Customer *cptr;	 
+};
+int main(){
+	//Customer c;
+	//readCustomer(&c);
+//	printCustomer(&c);
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q212	
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;	 
+};
+int main(){
+	Customer c1;
+	c1.code=1001;
+	c1.next=malloc(sizeof(Customer));
+	c1.next->code=1002;
+	
+	c1.next->next=malloc(sizeof(Customer));
+	c1.next->next->code=1003;
+	c1.next->next->next=NULL;
+	
+	Customer *p;
+	p=&c1;
+	while(p!=NULL){
+		printf("%d ",p->code);
+		p=p->next;
+	}
+	printf("\n");
+	
+	
+	return 0;
+} 
+
+/////////////////////////////////////////////////////////////////////
+Q213
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;	 
+};
+void add(Customer **cList,int code);
+void printCustomer(Customer *cList);
+void pop(Customer **cList);
+
+int main(){
+	Customer *cList=NULL;
+	add(&cList,1001);
+	add(&cList,1002);
+	add(&cList,1003);
+	add(&cList,1004);
+	printCustomer(cList);
+	pop(&cList);
+	printCustomer(cList);
+	return 0;
+} 
+
+void add(Customer **cList,int code){
+	Customer *temp=malloc(sizeof(Customer));	
+	temp->code=code;
+	temp->next=*cList;
+	*cList=temp;
+}
+
+void printCustomer(Customer *cList){
+	while(cList!=NULL){
+		printf("%d ",cList->code);
+		cList=cList->next;
+	}
+	printf("\n");
+}
+
+void pop(Customer **cList){
+	Customer *temp;
+	temp=*cList;
+	*cList=temp->next;
+	free(temp);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q214	Stack in Java
+		=============
+Step I
+======		
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Stack{
+	Customer customerStack=null;
+}
+class Demo{
+	public static void main(String args[]){
+		Stack myStack=new Stack();
+		myStack.push(new Customer("Danapala"));
+		myStack.push(new Customer("Gunapala"));
+		myStack.push(new Customer("Somapala"));
+		myStack.push(new Customer("Amarapala"));
+		myStack.printStack();	//prints [Amarapala,Somapala,Gunapala,Amarapala]
+		myStack.pop();		
+		myStack.printStack();	//prints [Somapala,Gunapala,Amarapala]	
+		System.out.println("Size of the Stack is "+myStack.size());
+	}
+}	
+/////////////////////////////////////////////////////////////////////
+Q215
+Step II
+
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Stack{
+	private Customer customerStack=null;
+	public void push(Customer customer){
+		customer.next=customerStack;
+		customerStack=customer;
+	}
+	public void printStack(){
+		Customer temp=customerStack;
+		System.out.print("[");
+		while(temp!=null){
+			System.out.print(temp+",");
+			temp=temp.next;
+		}	
+		System.out.println("]");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Stack myStack=new Stack();
+		myStack.push(new Customer("Danapala"));
+		myStack.push(new Customer("Gunapala"));
+		myStack.push(new Customer("Somapala"));
+		myStack.push(new Customer("Amarapala"));
+		myStack.printStack();	//prints [Amarapala,Somapala,Gunapala,Amarapala]
+		myStack.pop();		
+		//myStack.printStack();	//prints [Somapala,Gunapala,Amarapala]	
+		//System.out.println("Size of the Stack is "+myStack.size());
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q216
+Step III
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Stack{
+	private Customer customerStack=null;
+	public void push(Customer customer){
+		customer.next=customerStack;
+		customerStack=customer;
+	}
+	public void printStack(){
+		Customer temp=customerStack;
+		System.out.print("[");
+		while(temp!=null){
+			System.out.print(temp+",");
+			temp=temp.next;
+		}	
+		System.out.println("\b]");
+	}
+	public Customer pop(){
+		if(customerStack!=null){
+			Customer temp=customerStack;
+			customerStack=customerStack.next;
+			return temp;
+		}else{
+			return null;
+		}
+	}
+	public int size(){
+		Customer temp=customerStack;
+		int count=0;
+		while(temp!=null){
+			 count++;
+			 temp=temp.next;
+		}
+		return count;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Stack myStack=new Stack();
+		myStack.printStack();	//prints []	
+		myStack.push(new Customer("Danapala"));
+		myStack.printStack();	//prints [Danapala]	
+		myStack.push(new Customer("Gunapala"));
+		myStack.push(new Customer("Somapala"));
+		myStack.push(new Customer("Amarapala"));
+		myStack.printStack();	//prints [Amarapala,Somapala,Gunapala,Amarapala]
+		myStack.pop();		
+		myStack.printStack();	//prints [Somapala,Gunapala,Amarapala]	
+		System.out.println("Size of the Stack is "+myStack.size());
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q217	Stack in C
+		==========
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;	 
+};
+void push(Customer **cList,int code);
+void printCustomer(Customer *cList);
+void pop(Customer **cList);
+int size(Customer *cList);
+
+int main(){
+	Customer *cList=NULL;
+	push(&cList,1001);
+	push(&cList,1002);
+	push(&cList,1003);
+	push(&cList,1004);
+	printCustomer(cList);
+	pop(&cList);
+	printCustomer(cList);
+	printf("Size of the stack : %d\n",size(cList));
+	return 0;
+} 
+
+void push(Customer **cList,int code){
+	Customer *temp=malloc(sizeof(Customer));	
+	temp->code=code;
+	temp->next=*cList;
+	*cList=temp;
+}
+
+void printCustomer(Customer *cList){
+	while(cList!=NULL){
+		printf("%d ",cList->code);
+		cList=cList->next;
+	}
+	printf("\n");
+}
+
+void pop(Customer **cList){
+	Customer *temp;
+	temp=*cList;
+	*cList=temp->next;
+	free(temp);
+}
+int size(Customer *cList){
+	int count=0;
+	while(cList!=NULL){
+		count++;
+		cList=cList->next;
+	}
+	return count;
+}
+
+///////////////////////////////////////////////////////////////////// 
+Q218	Queue in Java Step I
+		====================
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Queue{
+	private Customer front=null;
+	private Customer rear=null;
+}
+class Demo{
+	public static void main(String args[]){
+		Queue customerQueue=new Queue();
+		customerQueue.insert(new Customer("Danapala"));
+		customerQueue.insert(new Customer("Gunapala"));
+		customerQueue.insert(new Customer("Somapala"));
+		customerQueue.insert(new Customer("Amarapala"));
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q219	Step II	
+		=======
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Queue{
+	private Customer front=null;
+	private Customer rear=null;
+	public void insert(Customer customer){
+		if(empty()){
+			rear=customer;
+			front=customer;
+		}else{
+			rear.next=customer;
+			rear=customer;
+		}	
+	}
+	public boolean empty(){
+		return rear==null || front==null;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Queue customerQueue=new Queue();
+		customerQueue.insert(new Customer("Danapala"));
+		customerQueue.insert(new Customer("Gunapala"));
+		customerQueue.insert(new Customer("Somapala"));
+		customerQueue.insert(new Customer("Amarapala"));
+		//customerQueue.printQueue();
+	}
+}	
+	
+
+/////////////////////////////////////////////////////////////////////
+Q220	Step III
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Queue{
+	private Customer front=null;
+	private Customer rear=null;
+	public void insert(Customer customer){
+		if(empty()){
+			rear=customer;
+			front=customer;
+		}else{
+			rear.next=customer;
+			rear=customer;
+		}	
+	}
+	public boolean empty(){
+		return rear==null || front==null;
+	}
+	public void printQueue(){
+		Customer temp=front;
+		System.out.print("[");
+		while(temp!=null){
+			System.out.print(temp+",");
+			temp=temp.next;
+		}
+		System.out.println("\b]");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Queue customerQueue=new Queue();
+		customerQueue.insert(new Customer("Danapala"));
+		customerQueue.insert(new Customer("Gunapala"));
+		customerQueue.insert(new Customer("Somapala"));
+		customerQueue.insert(new Customer("Amarapala"));
+		customerQueue.printQueue();
+		//System.out.println("Size of the Stack is "+myStack.size());
+	}
+}	
+	
+
+/////////////////////////////////////////////////////////////////////
+Q221	Step IV
+		======
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+}
+class Queue{
+	private Customer front=null;
+	private Customer rear=null;
+	public void insert(Customer customer){
+		if(empty()){
+			rear=customer;
+			front=customer;
+		}else{
+			rear.next=customer;
+			rear=customer;
+		}	
+	}
+	public boolean empty(){
+		return rear==null || front==null;
+	}
+	public void printQueue(){
+		Customer temp=front;
+		System.out.print("[");
+		while(temp!=null){
+			System.out.print(temp+",");
+			temp=temp.next;
+		}
+		System.out.println("\b]");
+	}
+	public int size(){
+		Customer temp=front;
+		int count=0;
+		while(temp!=null){
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
+	public Customer remove(){
+		Customer temp=front;
+		if(!empty()){
+			front=front.next;
+		}
+		return temp;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Queue customerQueue=new Queue();
+		customerQueue.insert(new Customer("Danapala"));
+		customerQueue.insert(new Customer("Gunapala"));
+		customerQueue.insert(new Customer("Somapala"));
+		customerQueue.insert(new Customer("Amarapala"));
+		customerQueue.printQueue();
+		customerQueue.remove();
+		customerQueue.printQueue();
+		System.out.println("Size of the Stack is "+customerQueue.size());
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q222	Queue
+		=====
+		
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+	public boolean equals(Object ob){
+		if(ob instanceof Customer){
+			Customer customer=(Customer)ob;
+			return name.equalsIgnoreCase(customer.name);
+		}else{
+			return false;
+		}
+	}
+}
+class Queue{
+	private Customer front=null;
+	private Customer rear=null;
+	public void insert(Customer customer){
+		if(empty()){
+			rear=customer;
+			front=customer;
+		}else{
+			rear.next=customer;
+			rear=customer;
+		}	
+	}
+	public boolean empty(){
+		return rear==null || front==null;
+	}
+	public void printQueue(){
+		Customer temp=front;
+		System.out.print("[");
+		while(temp!=null){
+			System.out.print(temp+",");
+			temp=temp.next;
+		}
+		System.out.println("\b]");
+	}
+	public int size(){
+		Customer temp=front;
+		int count=0;
+		while(temp!=null){
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
+	public Customer remove(){
+		Customer temp=front;
+		if(!empty()){
+			front=front.next;
+		}
+		return temp;
+	}
+	public Customer search(String name){
+		throw new ArithmeticException();	
+	}
+	public boolean search(Customer customer){
+		throw new ArithmeticException();
+	}		
+}
+class Demo{
+	public static void main(String args[]){
+		Queue customerQueue=new Queue();
+		customerQueue.insert(new Customer("Danapala"));
+		customerQueue.insert(new Customer("Gunapala"));
+		customerQueue.insert(new Customer("Somapala"));
+		customerQueue.insert(new Customer("Amarapala"));
+		customerQueue.printQueue();
+		customerQueue.remove();
+		customerQueue.printQueue();
+		System.out.println("Size of the Stack is "+customerQueue.size());
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q223	Queue in C
+		=========
+Step I
+=====
+
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;
+	  
+};
+void insert(Customer **front, Customer **rear,int code);
+void printCustomer(Customer *cList);
+void removeCustomer(Customer **front, Customer **rear);
+int size(Customer *cList);
+int isEmpty(Customer *cList);
+
+int main(){
+	Customer *rear=NULL;
+	Customer *front=NULL;
+	
+	insert(&front,&rear,1001);
+	insert(&front,&rear,1002);
+	insert(&front,&rear,1003);
+	insert(&front,&rear,1004);
+	insert(&front,&rear,1005);
+
+	removeCustomer(&front,&rear);
+	printCustomer(front);
+	printf("Size of the stack : %d\n",size(front));
+	return 0;
+} 
+
+void insert(Customer **front, Customer **rear,int code){
+
+}
+
+void printCustomer(Customer *cList){
+
+}
+
+void removeCustomer(Customer **front, Customer **rear){
+
+}
+int size(Customer *front){
+
+}
+int isEmpty(Customer *front){
+	//
+}
+
+/////////////////////////////////////////////////////////////////////
+Q224	Step II	
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;
+	  
+};
+void insert(Customer **front, Customer **rear,int code);
+void printCustomer(Customer *cList);
+void removeCustomer(Customer **front, Customer **rear);
+int size(Customer *cList);
+int isEmpty(Customer *cList);
+
+int main(){
+	Customer *rear=NULL;
+	Customer *front=NULL;
+	
+	insert(&front,&rear,1001);
+	insert(&front,&rear,1002);
+	insert(&front,&rear,1003);
+	insert(&front,&rear,1004);
+	insert(&front,&rear,1005);
+
+	removeCustomer(&front,&rear);
+	printCustomer(front);
+	printf("Size of the stack : %d\n",size(front));
+	return 0;
+} 
+
+void insert(Customer **front, Customer **rear,int code){
+	Customer *temp=malloc(sizeof(Customer));
+	temp->code=code;
+	temp->next=NULL;
+	
+	if(isEmpty(*front)){
+		*front=temp;
+		*rear=temp;	
+	}else{
+		(*rear)->next=temp;
+		*rear=temp;
+	}
+}
+
+void printCustomer(Customer *front){
+	printf("[");
+	while(front!=NULL){
+		printf("%d ",front->code);
+		front=front->next;
+	}
+	printf("]\n");
+}
+
+void removeCustomer(Customer **front, Customer **rear){
+	
+}
+int size(Customer *front){
+	int count=0;
+	while(front!=NULL){
+		count++;
+		front=front->next;
+	}
+	return count;
+}
+int isEmpty(Customer *front){
+	return front==NULL ;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q225 Step III 
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct customer Customer;
+struct customer{
+	int code;
+	Customer *next;
+	  
+};
+void insert(Customer **front, Customer **rear,int code);
+void printCustomer(Customer *cList);
+void removeCustomer(Customer **front, Customer **rear);
+int size(Customer *cList);
+int isEmpty(Customer *cList);
+
+int main(){
+	Customer *rear=NULL;
+	Customer *front=NULL;
+	
+	insert(&front,&rear,1001);
+	insert(&front,&rear,1002);
+	insert(&front,&rear,1003);
+	insert(&front,&rear,1004);
+	insert(&front,&rear,1005);
+	printCustomer(front);
+	printf("Size of the stack : %d\n",size(front));
+	removeCustomer(&front,&rear);
+	printCustomer(front);
+	printf("Size of the stack : %d\n",size(front));
+	return 0;
+} 
+
+void insert(Customer **front, Customer **rear,int code){
+	Customer *temp=malloc(sizeof(Customer));
+	temp->code=code;
+	temp->next=NULL;
+	
+	if(isEmpty(*front)){
+		*front=temp;
+		*rear=temp;	
+	}else{
+		(*rear)->next=temp;
+		*rear=temp;
+	}
+}
+
+void printCustomer(Customer *front){
+	printf("[");
+	while(front!=NULL){
+		printf("%d ",front->code);
+		front=front->next;
+	}
+	printf("]\n");
+}
+
+void removeCustomer(Customer **front, Customer **rear){
+	Customer *temp=*front;
+	if(!isEmpty(temp)){ //not empty
+		*front=(*front)->next;
+		free(temp);
+	}
+}
+int size(Customer *front){
+	int count=0;
+	while(front!=NULL){
+		count++;
+		front=front->next;
+	}
+	return count;
+}
+int isEmpty(Customer *front){
+	return front==NULL ;
+}
+
+/////////////////////////////////////////////////////////////////////
+Q226	List
+		====	
+Step I
+======
+
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+	public boolean equals(Object ob){
+		if(ob instanceof Customer){
+			Customer customer=(Customer)ob;
+			return name.equalsIgnoreCase(customer.name);
+		}else{
+			return false;
+		}
+	}
+}
+interface List{
+	public void add(Customer customer);
+	public void add(int index, Customer customer);
+	public Customer get(int index); 
+	public Customer remove(int index); 
+	public boolean remove(Customer customer); 
+	public Customer set(int index, Customer customer);//replace
+	public int size();
+	public boolean contains(Customer customer);
+	public index indexOf(Customer customer); 
+	public boolean isEmpty();
+	public Object[] toArray(); 
+}
+class LinkedList implements List{
+	private Customer first;
+	private Customer last;
+	
+}
+class Demo{
+	public static void main(String args[]){
+
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q227	Step II
+		======
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+	public boolean equals(Object ob){
+		if(ob instanceof Customer){
+			Customer customer=(Customer)ob;
+			return name.equalsIgnoreCase(customer.name);
+		}else{
+			return false;
+		}
+	}
+}
+interface List{
+	public void add(Customer customer);
+	//public void add(int index, Customer customer);
+	//public Customer get(int index); 
+	//public Customer remove(int index); 
+	//public boolean remove(Customer customer); 
+	//public Customer set(int index, Customer customer);//replace
+	//public int size();
+	//public boolean contains(Customer customer);
+	//public index indexOf(Customer customer); 
+	public boolean isEmpty();
+	//public Object[] toArray(); 	
+}
+class LinkedList implements List{
+	private Customer first;
+	private Customer last;
+	
+	public void add(Customer customer){
+		if(isEmpty()){
+			first=customer;
+			last=customer;
+		}else{
+			last.next=customer;
+			last=customer;
+		}	
+	}
+	public boolean isEmpty(){
+		return first==null || last==null;
+	}
+	public String toString(){
+		String list="[";
+		Customer temp=first;
+		while(temp!=null){
+			list+=temp.toString()+",";
+			temp=temp.next;
+		}
+		list+="\b]";
+		return list;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		LinkedList c1=new LinkedList();
+		c1.add(new Customer("Danapala"));
+		c1.add(new Customer("Gunapala"));
+		c1.add(new Customer("Somapala"));
+		c1.add(new Customer("Amrapala"));
+		System.out.println(c1); //c1.toString();
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q228	Step III
+		========
+class Customer{
+	String name;
+	Customer next;
+	Customer(String name){this.name=name;}
+	public String toString(){
+		return name;
+	}
+	public boolean equals(Object ob){
+		if(ob instanceof Customer){
+			Customer customer=(Customer)ob;
+			return name.equalsIgnoreCase(customer.name);
+		}else{
+			return false;
+		}
+	}
+}
+interface List{
+	public void add(Customer customer);
+	public void add(int index, Customer customer);
+	//public Customer get(int index); 
+	public Customer remove(int index); 
+	//public boolean remove(Customer customer); 
+	//public Customer set(int index, Customer customer);//replace
+	public int size();
+	//public boolean contains(Customer customer);
+	//public index indexOf(Customer customer); 
+	public boolean isEmpty();
+	//public Object[] toArray(); 
+	
+}
+class LinkedList implements List{
+	private Customer first;
+	private Customer last;
+	
+	public void add(Customer customer){
+		if(isEmpty()){
+			first=customer;
+			last=customer;
+		}else{
+			last.next=customer;
+			last=customer;
+		}	
+	}
+	public void add(int index,Customer customer){
+		//
+	}	
+	public Customer remove(int index){
+		if(index>size()){
+			return null;
+		}else{
+			Customer temp=first;
+			int n=1;
+			while(n<index){
+				temp=temp.next;
+				n++;
+			}
+			temp.next=temp.next.next;
+			return null;
+		}			
+	}
+	
+	
+	public boolean isEmpty(){
+		return first==null || last==null;
+	}
+	public String toString(){
+		String list="[";
+		Customer temp=first;
+		while(temp!=null){
+			list+=temp.toString()+",";
+			temp=temp.next;
+		}
+		list+="\b]";
+		return list;
+	}
+	public int size(){
+		Customer temp=first;
+		int count=0;
+		while(temp!=null){
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		LinkedList c1=new LinkedList();
+		c1.add(new Customer("Danapala"));
+		c1.add(new Customer("Gunapala"));
+		c1.add(new Customer("Somadasa"));
+		c1.add(new Customer("Somasiri"));
+		c1.add(new Customer("Somapala"));
+		c1.add(new Customer("Amrapala"));
+		System.out.println(c1); //c1.toString();
+		c1.remove(2);
+		System.out.println(c1); //c1.toString();
+		c1.add(1,new Customer("Danasiri"));
+		System.out.println(c1); //c1.toString();
+	}
+}	
+
+/////////////////////////////////////////////////////////////////////
+Q229	
+
+/////////////////////////////////////////////////////////////////////
+Q230
+
