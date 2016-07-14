@@ -1,11 +1,13 @@
+
 package edu.co225.lab5;
 
 import java.util.Arrays;
 
 /**
- * Project - untitled
- * Created by Dinuka Nadeeshan on 7/12/16.
+ * Project - Lab 05 CO225 Software Construction
+ * Created by Dinuka Nadeeshan (E/13/234) on 7/12/16.
  * dinuka.nadeeshan1993@gmail.com
+ *
  */
 public class Array {
     private static final int DEFAULT_SIZE = 10; //Use for create default Array Object
