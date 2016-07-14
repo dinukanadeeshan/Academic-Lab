@@ -163,8 +163,17 @@ public class Array {
         this.size=size;
 
     }
+
+
+    /**
+     * Remove all the element from the array
+     */
+    public void clear(){
+        trimToSize(0);
+    }
     @Override
     public String toString() {
+        if (size == 0) return "[]";
         String desc = "[";
 
         for (int i = 0; i < size; i++) {

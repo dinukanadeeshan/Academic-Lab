@@ -36,8 +36,20 @@ public class Main {
         System.out.println(ar);
 
         ar.replace(6, 150);
-        ar.replace(120, 150);
+        //ar.replace(120, 150);
 
         System.out.println(ar);
+
+        ar.clear();
+        System.out.println(ar);
+
+        ar.add(10);
+        ar.add(11);
+        ar.add(12);
+        ar.add(13);
+        ar.add(14);
+
+        System.out.println(ar);
+
     }
 }

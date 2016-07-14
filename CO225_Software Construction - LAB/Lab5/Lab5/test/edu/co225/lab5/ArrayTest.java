@@ -79,4 +79,10 @@ public class ArrayTest {
         ar.trimToSize(1);
         assertEquals(1,ar.size());
     }
+
+    @Test
+    public void testClear() throws Exception{
+        ar.clear();
+        assertEquals(0,ar.size());
+    }
 }
