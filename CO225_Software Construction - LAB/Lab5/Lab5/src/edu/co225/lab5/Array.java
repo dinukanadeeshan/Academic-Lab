@@ -1,16 +1,14 @@
 
 package edu.co225.lab5;
 
-import java.util.Arrays;
 
 /**
  * Project - Lab 05 CO225 Software Construction
  * Created by Dinuka Nadeeshan (E/13/234) on 7/12/16.
  * dinuka.nadeeshan1993@gmail.com
- *
  */
 public class Array {
-    private static final int DEFAULT_SIZE = 10; //Use for create default Array Object
+    private static final int DEFAULT_SIZE = 0; //Use for create default Array Object
 
     private int size;   //Current no of elements of the array
 
@@ -40,11 +38,11 @@ public class Array {
      * @param d value of element
      */
     public void add(int d) {
-        if (size < data.length) {
-            data[size++] = d;
-        } else {
-            data = Arrays.copyOf(data, ++size);
+        try{
+            data = copyOf(data, ++size);
             data[size - 1] = d;
+        }catch (ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
         }
     }
 
@@ -60,19 +58,23 @@ public class Array {
             size ekata wada index eka loku unoth mkada krnnee??? Ask Fawsaan...
 
          */
-        if (size < data.length) {
-            //data = Arrays.copyOf(data, ++size);
-            for (int i = size++; i > index; i--) {
-                data[i] = data[i - 1];
-            }
-            data[index] = d;
+//        if (size < data.length) {
+//            //data = Arrays.copyOf(data, ++size);
+//            for (int i = size++; i > index; i--) {
+//                data[i] = data[i - 1];
+//            }
+//            data[index] = d;
+//
+//        } else {
 
-        } else {
-            data = Arrays.copyOf(data, ++size);
+        try {
+            data = copyOf(data, ++size);
             for (int i = size - 1; i > index; i--) {
                 data[i] = data[i - 1];
             }
             data[index] = d;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
     }
 
@@ -83,11 +85,13 @@ public class Array {
      * @param d     value of element to be replaced to the array
      */
     public void replace(int index, int d) {
-        if (index < size) {
+        try {
             data[index] = d;
             return;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            //throw new ArrayIndexOutOfBoundsException("Invalid Index : " + index);
+            e.printStackTrace();
         }
-        throw new ArrayIndexOutOfBoundsException("Invalid Index : " + index);
     }
 
     /**
@@ -98,10 +102,13 @@ public class Array {
      */
     public int get(int index) {
 
-        if (index < size) {
+        try {
             return data[index];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            //throw new ArrayIndexOutOfBoundsException("Invalid index - can't use negative values"); //Throws new exception for array index out of bound
+            e.printStackTrace();
         }
-        throw new ArrayIndexOutOfBoundsException("Invalid index - can't use negative values"); //Throws new exception for array index out of bound
+        return -1;
     }
 
     /**
@@ -110,14 +117,16 @@ public class Array {
      * @param index index of element of the array to be removed
      */
     public void remove(int index) {
-        if (index < size) {
+        try {
             for (int i = index; i < size - 1; i++) {
                 data[i] = data[i + 1];
             }
             data[--size] = 0;
             return;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            //throw new ArrayIndexOutOfBoundsException("Invalid index - can't use negative values"); //Throws new exception for array index out of bound
+            e.printStackTrace();
         }
-        throw new ArrayIndexOutOfBoundsException("Invalid index - can't use negative values"); //Throws new exception for array index out of bound
     }
 
     /**
@@ -143,9 +152,9 @@ public class Array {
      * Check whether specific element is in the array
      *
      * @param d the value of element for check
-     * @return  true/false based on wether or not the element is found on  the array
+     * @return true/false based on wether or not the element is found on  the array
      */
-    public boolean contains(int d){
+    public boolean contains(int d) {
         for (int i = 0; i < size; i++) {
             if (data[i] == d) return true;
         }
@@ -158,19 +167,29 @@ public class Array {
      *
      * @param size for trim the array
      */
-    public void trimToSize(int size){
-        data = Arrays.copyOf(data,size);
-        this.size=size;
+    public void trimToSize(int size) {
+        data = copyOf(data, size);
+        this.size = size;
 
     }
 
+
+    private int[] copyOf(int[] ar, int new_size) {
+        int temp[] = new int[new_size];
+
+        for (int i = 0; i < ar.length; i++) {
+            temp[i] = ar[i];
+        }
+        return temp;
+    }
 
     /**
      * Remove all the element from the array
      */
-    public void clear(){
+    public void clear() {
         trimToSize(0);
     }
+
     @Override
     public String toString() {
         if (size == 0) return "[]";
