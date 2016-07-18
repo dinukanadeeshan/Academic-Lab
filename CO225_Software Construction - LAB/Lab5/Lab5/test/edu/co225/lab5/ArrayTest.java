@@ -29,7 +29,7 @@ public class ArrayTest {
     public void testAdd() throws Exception {
         ar.add(34);
 
-        assertEquals(34,ar.get(2));
+        assertEquals("[10, 20, 34]",ar.toString());
 
 
 
@@ -38,14 +38,14 @@ public class ArrayTest {
     @Test
     public void testAdd1() throws Exception {
         ar.add(1,483);
-        assertEquals(483, ar.get(1));
+        assertEquals("[10, 483, 20]", ar.toString());
     }
 
     @Test
     public void testReplace() throws Exception {
         ar.replace(0,100);
 
-        assertEquals(100,ar.get(0));
+        assertEquals("[100, 20]",ar.toString());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class ArrayTest {
     @Test
     public void testRemove() throws Exception {
         ar.remove(0);
-        assertEquals(20,ar.get(0));
+        assertEquals("[20]",ar.toString());
     }
 
     @Test
@@ -77,6 +77,7 @@ public class ArrayTest {
     @Test
     public void testTrimToSize() throws Exception {
         ar.trimToSize(1);
+
         assertEquals(1,ar.size());
     }
 

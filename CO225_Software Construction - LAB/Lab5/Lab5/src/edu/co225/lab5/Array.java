@@ -177,8 +177,11 @@ public class Array {
     private int[] copyOf(int[] ar, int new_size) {
         int temp[] = new int[new_size];
 
-        for (int i = 0; i < ar.length; i++) {
+        try{for (int i = 0; i < ar.length; i++) {
             temp[i] = ar[i];
+        }
+        }catch (ArrayIndexOutOfBoundsException e){
+            //e.printStackTrace();
         }
         return temp;
     }
