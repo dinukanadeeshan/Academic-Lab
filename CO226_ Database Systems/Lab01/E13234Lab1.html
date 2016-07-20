@@ -1,0 +1,128 @@
+<!doctype html>
+
+<!--
+	K.A.D Nadeeshan
+	E/13/234
+	CO226 
+	Lab01
+-->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CO226 - Lab 01 - Order Form</title>
+	<style>
+	body{
+		background-color : lightgreen;
+	}
+	h1{
+		
+	}
+	.tablediv{
+		border-radius: 25px;
+		background: #73AD21;
+		padding: 20px;
+		 
+		 width : 650px;
+		border:2px solid gray;
+	}
+	.radiobtn{
+		font-color : white;
+	}
+	label{
+		color:white;
+	}
+	</style>
+</head>
+<body>
+	<h1>Buy T-shirts Online</h1>
+	<h2>Fill out the form bellow and click "Order Now" to order</h2>
+	<div class="tablediv">
+	<table>
+	<tr>
+		<td align="center"><b>Search by order number:</b></td>
+		<td><div><input type='text' placeholder="Enter text here"/><button>Search</button></div></td>
+	</tr>
+	<tr>
+		<td align="center"><b>Choose your size:</b></td>
+		<td>
+			<div>
+				<input class = "radiobtn" type="radio" name = "size" value="Small" checked><b>Small</b>
+				<input class = "radiobtn" type="radio" name = "size" value="Medium"><b>Medium</b>
+				<input class = "radiobtn" type="radio" name = "size" value="Large"><b>Large</b>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center"><b>Choose your color:</b></td>
+		<td>
+			<div>
+				 <select>
+				  <option value="red"><b>Red</b></option>
+				  <option value="blue"><b>Blue</b></option>
+				  <option value="yellow"><b>Yellow</b></option>
+				  <option value="black"><b>Black</b></option>
+				</select> 
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center"><b>Extra Items:</b></td>
+		<td>
+			<div>
+				 <input type="checkbox"><b>Cap</b><br>
+				 <input type="checkbox"><b>Wrist Band</b><br>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center"><b>Deliver to:</b></td>
+		<td>
+			<div>
+				<table>
+					<tr>
+						<td><label><b>First Name:</b></label></td>
+						<td><input type="text"/></td>
+					</tr>
+					<tr>
+						<td><label><b>Last Name:</b></label></td>
+						<td><input type="text"/></td>
+					</tr>
+					<tr>
+						<td><label><b>Address 1:</b></label></td>
+						<td><input type="text"/></td>
+					</tr>
+					<tr>
+						<td><label><b>Address 2:</b></label></td>
+						<td><input type="text"/></td>
+					</tr>
+					<tr>
+						<td><label><b>Address 3:</b></label></td>
+						<td><input type="text"/></td>
+					</tr>
+				</table>
+
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+			<b>Your Comments:</b>
+		</td>
+		<td>
+			<textarea rows="10" cols="50">
+			
+			</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			
+		</td>
+		<td>
+			<button>Order Now</button>
+		</td>
+	</tr>
+	</table>
+	</div>
+</body>
+</html>

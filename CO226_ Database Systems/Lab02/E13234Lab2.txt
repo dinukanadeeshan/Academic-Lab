@@ -1,0 +1,89 @@
+mysql> create database E13234Lab02;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use E13234Lab02
+Database changed
+mysql> create table Orders(
+    -> order_number int(5) primary key,
+    -> size varchar(10),
+    -> color varchar(10),
+    -> cap boolean,
+    -> wrist_band boolean,
+    -> firstName varchar(10),
+    -> lastName varchar(10),
+    -> address1 varchar(50),
+    -> address2 varchar(50),
+    -> address3 varchar(50),
+    -> comment varchar(100)
+    -> );
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> desc Orders;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| order_number | int(5)       | NO   | PRI | NULL    |       |
+| size         | varchar(10)  | YES  |     | NULL    |       |
+| color        | varchar(10)  | YES  |     | NULL    |       |
+| cap          | tinyint(1)   | YES  |     | NULL    |       |
+| wrist_band   | tinyint(1)   | YES  |     | NULL    |       |
+| firstName    | varchar(10)  | YES  |     | NULL    |       |
+| lastName     | varchar(10)  | YES  |     | NULL    |       |
+| address1     | varchar(50)  | YES  |     | NULL    |       |
+| address2     | varchar(50)  | YES  |     | NULL    |       |
+| address3     | varchar(50)  | YES  |     | NULL    |       |
+| comment      | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+11 rows in set (0.16 sec)
+
+mysql> insert into Orders values(1,'Small','Red',true,true,'Saman','Perera','Matara','Colombo','Peradeniya','Good');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Orders values(2,'Small','Yellow',true,false,'Kamal','Perera','Matara','Kandy','Peradeniya','Good');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Orders values(3,'Medium','Green',false,false,'Nimal','Silva','Kurunegala','Kandy','Colombo','Not bad');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Orders values(4,'Large','Green',false,true,'Sunimal','Sanjeewa','Anuradhapura','Kandy','Colombo','Bad');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from Orders;
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+| order_number | size   | color  | cap  | wrist_band | firstName | lastName | address1     | address2 | address3   | comment |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+|            1 | Small  | Red    |    1 |          1 | Saman     | Perera   | Matara       | Colombo  | Peradeniya | Good    |
+|            2 | Small  | Yellow |    1 |          0 | Kamal     | Perera   | Matara       | Kandy    | Peradeniya | Good    |
+|            3 | Medium | Green  |    0 |          0 | Nimal     | Silva    | Kurunegala   | Kandy    | Colombo    | Not bad |
+|            4 | Large  | Green  |    0 |          1 | Sunimal   | Sanjeewa | Anuradhapura | Kandy    | Colombo    | Bad     |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> delete from Orders where firstName = 'Saman';
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from Orders;
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+| order_number | size   | color  | cap  | wrist_band | firstName | lastName | address1     | address2 | address3   | comment |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+|            2 | Small  | Yellow |    1 |          0 | Kamal     | Perera   | Matara       | Kandy    | Peradeniya | Good    |
+|            3 | Medium | Green  |    0 |          0 | Nimal     | Silva    | Kurunegala   | Kandy    | Colombo    | Not bad |
+|            4 | Large  | Green  |    0 |          1 | Sunimal   | Sanjeewa | Anuradhapura | Kandy    | Colombo    | Bad     |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> update Orders set color = 'Blue' where lastName='Sanjeewa';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Orders;
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+| order_number | size   | color  | cap  | wrist_band | firstName | lastName | address1     | address2 | address3   | comment |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+|            2 | Small  | Yellow |    1 |          0 | Kamal     | Perera   | Matara       | Kandy    | Peradeniya | Good    |
+|            3 | Medium | Green  |    0 |          0 | Nimal     | Silva    | Kurunegala   | Kandy    | Colombo    | Not bad |
+|            4 | Large  | Blue   |    0 |          1 | Sunimal   | Sanjeewa | Anuradhapura | Kandy    | Colombo    | Bad     |
++--------------+--------+--------+------+------------+-----------+----------+--------------+----------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> exit
