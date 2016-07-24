@@ -1,0 +1,4 @@
+Enter the key:
+Enter the plain text:
+Cipher text is:
+a65d985179783265 7860fedf5c570d18
