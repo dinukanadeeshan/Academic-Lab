@@ -307,7 +307,7 @@ logical_l_shift_3_end:
 .data
 input_text_1: .asciz "Enter the key:\n"
 input_text_2: .asciz "Enter the plain text:\n"
-formatllx_: .asciz "%016llx \n"
+formatllx_: .asciz "%016llx "
 formatllx: .asciz "%16llx %16llx"
 format: .asciz "%08x\n"
 testFormat: .asciz "Passed\n"

@@ -9,13 +9,10 @@ int main(){
 	ullint_t p_2;	// = 0x7469206564616d20LL;
 
 	printf("Enter the key:\n");
-	scanf("%16llx %16llx",&k_1,&k_2);	
-
-
+	scanf("%16llx %16llx",&k_1,&k_2);	//
 
 	printf("Enter the plain text:\n");
 	scanf("%16llx %16llx",&p_1,&p_2);
-
 
 	//Round i
 	p_1 = (p_1 >> 8)|(p_1 << (64 - 8));
