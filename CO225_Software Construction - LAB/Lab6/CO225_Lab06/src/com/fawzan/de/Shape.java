@@ -25,5 +25,6 @@ public class Shape {
 
     //method draw
     public void draw(Graphics g) {
+
     }
 }

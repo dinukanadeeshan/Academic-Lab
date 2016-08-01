@@ -1,31 +1,127 @@
 package com.fawzan.de;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.QuadCurve2D;
 
 /**
  * Created by Fawzan
  * on 7/26/16
  * <fawzanm@gmail.com>
  */
-public class Nautilus{
+public class Nautilus extends JPanel {
 
-    //You need to draw the nautilus, what is it? Refer the image img/ folder. Somehow you need to draw it.
-    //Here is some help  : http://2muchfun.info/nautilusshell.html
+    private static int WIDTH = 1500;
+    private static int HEIGHT = 900;
+    private final static int SCALE = 2;
 
-    // what to inherit, what not not to inherit? Well, you need to find the answer for that
-    // PS : hue people are engineering students, not some 3rd world programmers
-
-    //If you missed the last workshop don't waste your time, Start learning or start praying
-
-    //We will all be happy if we have more and enough choices, but life is not always fair. So deal with it
-
-    //If you copy, I don't care who you are, I will find you and I will give ZERO marks for both you and the one who gave you the copy
-
-    //-Fawzan, The one who attach people to the truth rather than attaching those people to himself. Yeah, the grammar is correct.
-
-    //Peace out
+    public Nautilus(int w, int h) {
+        setSize(w, h);
+    }
 
 
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Nautilus");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setContentPane(new Nautilus(WIDTH, HEIGHT));
+
+        frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        frame.pack();
+        frame.setVisible(true);
+
+
+    }
+
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2d = (Graphics2D) g;
+        int[] fibList = Fibonacci.getFibList(15);
+
+
+        int tempY, tempX;
+        int xPos = 400, yPos = 300;
+        int preX = xPos, preY = yPos;
+        tempY = yPos + 1 * SCALE;
+        new Line(xPos, xPos, yPos, tempY).draw(g);
+        new Line(xPos + SCALE, xPos + SCALE, yPos, yPos + SCALE).draw(g);
+        yPos = tempY;
+        int xForS = xPos, yForS = yPos;
+
+        for (int i = 0; i < 15; i++) {
+            int rem = i % 4;
+
+            if (rem == 0) {
+                tempX = xPos + (SCALE * fibList[i]);
+                new Line(xPos, xPos + SCALE * fibList[i], yPos - SCALE * (i == 0 ? 1 : fibList[i - 1]), yPos - SCALE * (i == 0 ? 1 : fibList[i - 1])).draw(g);
+                new Line(xPos, tempX, yPos, yPos).draw(g);
+                xPos = tempX;
+
+//                new Line(Color.red, preX, preY, xPos - (SCALE * (i == 0 ? 1 : fibList[i - 1])), yPos).draw(g);
+                g.setColor(Color.red);
+                ((Graphics2D) g).setStroke(new BasicStroke(2));
+                g2d.draw(new QuadCurve2D.Double(preX, preY, preX, yPos, xPos - (SCALE * (i == 0 ? 1 : fibList[i - 1])), yPos));
+                ((Graphics2D) g).setStroke(new BasicStroke(1));
+                preX = xPos - (SCALE * (i == 0 ? 1 : fibList[i - 1]));
+                preY = yPos;
+
+
+            } else if (rem == 1) {
+                tempY = yPos - (SCALE * fibList[i]);
+                new Line(xPos - SCALE * (i == 0 ? 1 : fibList[i - 1]), xPos - SCALE * (i == 0 ? 1 : fibList[i - 1]), yPos, yPos - SCALE * fibList[i]).draw(g);
+                new Line(xPos, xPos, yPos, tempY).draw(g);
+                yPos = tempY;
+
+
+//                new Line(Color.red, preX, preY, xPos, yPos + (SCALE * (i == 0 ? 1 : fibList[i - 1]))).draw(g);
+                g.setColor(Color.red);
+                ((Graphics2D) g).setStroke(new BasicStroke(2));
+                g2d.draw(new QuadCurve2D.Double(preX, preY, xPos, preY, xPos, yPos + (SCALE * (i == 0 ? 1 : fibList[i - 1]))));
+                ((Graphics2D) g).setStroke(new BasicStroke(1));
+
+                preX = xPos;
+                preY = yPos + (SCALE * (i == 0 ? 1 : fibList[i - 1]));
+
+            } else if (rem == 2) {
+                tempX = xPos - (SCALE * fibList[i]);
+                new Line(xPos, xPos - SCALE * fibList[i], yPos + SCALE * (i == 0 ? 1 : fibList[i - 1]), yPos + SCALE * (i == 0 ? 1 : fibList[i - 1])).draw(g);
+                new Line(xPos, tempX, yPos, yPos).draw(g);
+                xPos = tempX;
+
+//                new Line(Color.red, preX, preY, xPos + (SCALE * (i == 0 ? 1 : fibList[i - 1])), yPos).draw(g);
+                g.setColor(Color.red);
+                ((Graphics2D) g).setStroke(new BasicStroke(2));
+                g2d.draw(new QuadCurve2D.Double(preX, preY, preX, yPos, xPos + (SCALE * (i == 0 ? 1 : fibList[i - 1])), yPos));
+                ((Graphics2D) g).setStroke(new BasicStroke(1));
+
+                preX = xPos + (SCALE * (i == 0 ? 1 : fibList[i - 1]));
+                preY = yPos;
+
+            } else if (rem == 3) {
+                tempY = yPos + (SCALE * fibList[i]);
+                new Line(xPos + SCALE * (i == 0 ? 1 : fibList[i - 1]), xPos + SCALE * (i == 0 ? 1 : fibList[i - 1]), yPos, yPos + SCALE * fibList[i]).draw(g);
+                new Line(xPos, xPos, yPos, tempY).draw(g);
+                yPos = tempY;
+
+
+//                new Line(Color.red, preX, preY, xPos, yPos - (SCALE * (i == 0 ? 1 : fibList[i - 1]))).draw(g);
+                g.setColor(Color.red);
+                ((Graphics2D) g).setStroke(new BasicStroke(2));
+                g2d.draw(new QuadCurve2D.Double(preX, preY, xPos, preY, xPos, yPos - (SCALE * (i == 0 ? 1 : fibList[i - 1]))));
+                ((Graphics2D) g).setStroke(new BasicStroke(1));
+
+                preX = xPos;
+                preY = yPos - (SCALE * (i == 0 ? 1 : fibList[i - 1]));
+
+            }
+        }
+
+    }
+
+    
 
 
 }
