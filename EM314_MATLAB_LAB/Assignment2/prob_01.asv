@@ -1,0 +1,11 @@
+x = [1, 2, 4, 6, 8, 10];
+y = [3, 3, 4, 6, 7, 8];
+
+plot(x,y);
+grid on;
+
+p1 = polyfit(x,y,1);
+
+p2 = polyfit(x,y,2);
+
+plot(x = ,);
