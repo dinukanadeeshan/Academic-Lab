@@ -1,6 +1,11 @@
- x = 25;
-for i=1:50
-   x=((x + 12)/12).^3; 
+ x_0 = 1;
+ x_1 = ((x_0 + 12)/12).^3;   
+c = 0;
+while abs(x_0 - x_1) > eps
+    x_0 = x_1;
+    x_1 = ((x_0 + 12)/12).^3;   
+    
+    c = c + 1;
 end
 
-x
+fprintf('%.8f for %d of iteration\n',x_1,c);

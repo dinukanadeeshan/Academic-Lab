@@ -1,8 +1,11 @@
-x = -10:0.000001:10;
+x = -10:0.1:30;
 
-y = feval(@prob1function, x);
+y=x - 12 .* x .^(1/3)  + 12;
 
-%y = prob1function(x);
 figure;
-plot(x,y);
+plot(x,y, 'b-');
 grid on;
+hold on;
+
+
+
