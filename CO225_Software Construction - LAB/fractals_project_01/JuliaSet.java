@@ -5,7 +5,7 @@ public class JuliaSet extends FractalType{
 	}
 
 	@Override
-	public boolean isDiverge(ComplexNumber cn){
+	public synchronized boolean isDiverge(ComplexNumber cn){
 		boolean isDiv = false;
 		ComplexNumber zn = cn;
 		

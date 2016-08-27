@@ -21,12 +21,19 @@ public class Fractal extends JFrame{
 
 	public static void main(String[] args) {
 		if(args[0].equals("Mandelbrot")){
-			new Fractal(Double.parseDouble(args[1]),Double.parseDouble(args[3]),Double.parseDouble(args[2])
+			new Thread(){
+				public void run(){
+					new Fractal(Double.parseDouble(args[1]),Double.parseDouble(args[3]),Double.parseDouble(args[2])
 					,Double.parseDouble(args[4]),Integer.parseInt(args[5]));
-
+				}
+			}.start();
 
 		} else if (args[0].equals("Julia")) {
-			new Fractal(new ComplexNumber(Double.parseDouble(args[1]),Double.parseDouble(args[2])),Integer.parseInt(args[3]));
+			new Thread(){
+				public void run(){
+					new Fractal(new ComplexNumber(Double.parseDouble(args[1]),Double.parseDouble(args[2])),Integer.parseInt(args[3]));
+				}
+			}.start();
 		} else {
 			System.out.println("Invalid Input");
 			System.exit(1);

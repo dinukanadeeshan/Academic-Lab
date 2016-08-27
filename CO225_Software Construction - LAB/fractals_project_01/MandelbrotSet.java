@@ -4,12 +4,10 @@ public class MandelbrotSet extends FractalType{
 	}
 
 	@Override
-	public boolean isDiverge(ComplexNumber cn){
+	public synchronized  boolean isDiverge(ComplexNumber cn){
 		boolean isDiv = false;
 		ComplexNumber zn = new ComplexNumber(0,0);
-		
-				//System.out.println(cn);
-			
+	
 		for (int i=0; i<iterations ; i++) {
 			ComplexNumber zn1 = zn.squre().add(cn);
 
