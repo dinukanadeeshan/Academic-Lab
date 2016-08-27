@@ -21,7 +21,7 @@ public class Mandelbrot extends JFrame {
                 cX = (x - 400) / ZOOM;
                 cY = (y - 300) / ZOOM;
                 int iter = MAX_ITER;
-                while (zx * zx + zy * zy < 4 && iter > 0) {
+                while (zx * zx + zy * zy < 2 && iter > 0) {
                     tmp = zx * zx - zy * zy + cX;
                     zy = 2.0 * zx * zy + cY;
                     zx = tmp;
