@@ -1,3 +1,12 @@
+/**
+	Created by K. A. D. Nadeeshan (E/13/234)
+	Email : dinuka.nadeeshan1993@gmail.com
+
+	CO225 - Software Construction - Mid term Project - Fractals
+
+	
+*/
+/** Create class for Complex Number to Calculate complex numbers*/
 public class ComplexNumber{
 	private double x;
 	private double y;
