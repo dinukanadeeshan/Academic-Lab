@@ -1,8 +1,14 @@
 /**
- * Project - TicTacToe
- * Created by Dinuka Nadeeshan on 9/6/16.
- * dinuka.nadeeshan1993@gmail.com
+ * C0225 - Software Constructions - Lab 08 - Tic Tac Toe Game
+ *
+ * @author K. A. Dinuka Nadeeshan (E/13/234)
+ *
+ * @email dinuka.nadeeshan1993@gmail.com
+ *
+ * @team Unicorn (TM)
+ *
  */
+
 public class GameModel {
 
     private boolean[][] clickedBtns;    //Keep the clicked buttons in this boolean array with relative index

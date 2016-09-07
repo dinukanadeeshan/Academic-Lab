@@ -1,3 +1,14 @@
+/**
+ * C0225 - Software Constructions - Lab 08 - Tic Tac Toe Game
+ *
+ * @author K. A. Dinuka Nadeeshan (E/13/234)
+ *
+ * @email dinuka.nadeeshan1993@gmail.com
+ *
+ * @team Unicorn (TM)
+ *
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +24,7 @@ public class GameView extends JFrame {
 
     private GameController gameController;
 
+    private boolean isAuto;
 
     public GameView() {
         setSize(300, 300);
@@ -23,32 +35,41 @@ public class GameView extends JFrame {
         gamePanel.setBackground(Color.cyan);
 
 
-        JOptionPane.showMessageDialog(this, "This is 2 player game... Play with computer is not implemented yet!!! :(\n\n Thank you.!!");
+        // JOptionPane.showMessageDialog(this, "This is 2 player game... Play with computer is not implemented yet!!! :(\n\n Thank you.!!");
 
-       gameController = new GameController(new GameModel());
+        int res = JOptionPane.showConfirmDialog(this, "Do you want to play with computer?", "", JOptionPane.YES_NO_OPTION);
+        if (res == JOptionPane.YES_OPTION){
+            isAuto = true;
+            setTitle("With Computer");
+
+        }else{
+            setTitle("2 Player - Player O");
+        }
+
+
+        gameController = new GameController(new GameModel());
 
         buttons = new JButton[3][3];
 
-        ActionListener btnAction = new ActionListener(){
-
+        ActionListener btnAction = new ActionListener() {
 
 
             @Override
-            public void actionPerformed (ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 String[] cmd = e.getActionCommand().split(" ");
                 int i = Integer.parseInt(cmd[0]);
                 int j = Integer.parseInt(cmd[1]);
 
-                if (!gameController.hasClickThisButton(i,j)) {
+                if (!isAuto && !gameController.hasClickThisButton(i, j)) {
 
                     ((JButton) e.getSource()).setText(gameController.getPlayersMark());
 
-                    gameController.clickedThisButton(i,j);
+                    gameController.clickedThisButton(i, j);
                     gameController.changePlayer();
-
+                    setTitle("2 Player - Player "+gameController.getPlayersMark());
                     int res = gameController.checkForWinner();
 
-                    if (res == -1){
+                    if (res == -1) {
                         return;
                     }
 
@@ -56,7 +77,56 @@ public class GameView extends JFrame {
                         JOptionPane.showMessageDialog(GameView.this, "Game Draw!!");
                         resetBtn.doClick();
                     } else {
-                        JOptionPane.showMessageDialog(GameView.this, "Winner : "+gameController.getPlayersMark(res));
+                        JOptionPane.showMessageDialog(GameView.this, "Winner : " + gameController.getPlayersMark(res));
+                        resetBtn.doClick();
+                    }
+
+                }
+
+                if (isAuto && !gameController.hasClickThisButton(i, j) && gameController.getGameModel().getChanceOfPlayer() == 0) {
+                    ((JButton) e.getSource()).setText(gameController.getPlayersMark());
+
+                    gameController.clickedThisButton(i, j);
+                    gameController.changePlayer();
+
+                    //Let computer decide
+                    int[] computerDecision = gameController.getComputerDecision();
+//                    try {
+//                        Thread.sleep(500);
+//                    } catch (InterruptedException e1) {
+//
+//                    }
+
+                    int res = -1;
+                    if (computerDecision != null) {
+                        gameController.clickedThisButton(computerDecision[0], computerDecision[1]);
+                        gameController.changePlayer();
+
+                        buttons[computerDecision[0]][computerDecision[1]].setText("X");
+
+                         res = gameController.checkForWinner();
+//                        try {
+//                            Thread.sleep(500);
+//                        } catch (InterruptedException e1) {
+//
+//                        }
+                        System.out.println("Came here");
+
+
+                    } else {
+                        JOptionPane.showMessageDialog(GameView.this, "Game Draw!!");
+                        resetBtn.doClick();
+                    }
+                    if (res == -1) {
+                        System.out.println("Return..");
+                        return;
+                    }
+
+                    if (res == 0) {
+                        JOptionPane.showMessageDialog(GameView.this, "You won.");
+                        resetBtn.doClick();
+                    } else {
+                        JOptionPane.showMessageDialog(GameView.this, "You lose.");
                         resetBtn.doClick();
                     }
 
@@ -64,7 +134,7 @@ public class GameView extends JFrame {
 
 
             }
-        } ;
+        };
 
 
         for (int i = 0; i < 3; i++) {
@@ -93,7 +163,7 @@ public class GameView extends JFrame {
                 }
 
                 gameController.setGameModel(new GameModel());
-
+                if (!isAuto) setTitle("2 Player - Player O");
             }
         });
 
