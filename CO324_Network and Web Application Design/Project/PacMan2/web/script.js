@@ -19,6 +19,8 @@ var source = new EventSource('game');
 source.onmessage = function (e) {
     console.log(e.data);
     response = JSON.parse(e.data);
+    document.getElementById("json").insertAdjacentHTML('afterbegin', e.data + '<br/>');
+    
     // paint();
 };
 
