@@ -28,8 +28,10 @@ function ajaxfunc() {
 
             if (req.status === 200)
             {
-                response = req.responseText;
-                
+                response = JSON.parse(req.responseText);
+                console.log(response.PLAYERS);
+                //paint();
+
             }
 
         }
@@ -62,7 +64,7 @@ function sendPlayerPosition() {
         //send keystroke to servlet
         xmlhttprequest.open("POST", "UpdateGame?keypress=" + keypress, true);
         xmlhttprequest.send();
-        
+
         ajaxfunc();
         // paint();
     } else {
@@ -106,7 +108,7 @@ function init() {
     /* Trigger the paint function every 100ms to update the canvas*/
     if (typeof game_loop !== "undefined")
         clearInterval(game_loop);
-    game_loop = setInterval(paint, 10);
+    game_loop = setInterval(paint, 50);
 }
 
 init();
