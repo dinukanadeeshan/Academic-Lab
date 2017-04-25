@@ -14,17 +14,43 @@
 //                ["P3", -6, 0, 44], ["P4", 10, 44, 44]
 //            ]
 //        };
+
+function ajaxfunc() {
+    var req = new XMLHttpRequest();
+
+    req.open("GET", "game");
+
+    req.send(null);
+    req.onreadystatechange = function ()
+    {
+        if (req.readyState === 4)
+        {
+
+            if (req.status === 200)
+            {
+                response = req.responseText;
+                
+            }
+
+        }
+
+    };
+}
+
+ajaxfunc();
 var response;
-var source = new EventSource('game');
-source.onmessage = function (e) {
-    console.log(e.data);
-    response = JSON.parse(e.data);
-    
-};
+//var source = new EventSource('game');
+//source.onmessage = function (e) {
+//    console.log(e.data);
+//    response = JSON.parse(e.data);
+//   // paint();
+//};
+
+
 
 $(document).keydown(function (e) {
     var key = e.which;
-    console.log("key pressed "+key);
+    console.log("key pressed " + key);
     document.getElementById("keypress").value = key;
     sendPlayerPosition();
 });
@@ -36,6 +62,9 @@ function sendPlayerPosition() {
         //send keystroke to servlet
         xmlhttprequest.open("POST", "UpdateGame?keypress=" + keypress, true);
         xmlhttprequest.send();
+        
+        ajaxfunc();
+        // paint();
     } else {
         return;
     }
@@ -77,7 +106,7 @@ function init() {
     /* Trigger the paint function every 100ms to update the canvas*/
     if (typeof game_loop !== "undefined")
         clearInterval(game_loop);
-    game_loop = setInterval(paint, 100);
+    game_loop = setInterval(paint, 10);
 }
 
 init();

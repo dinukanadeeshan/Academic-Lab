@@ -19,23 +19,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author HP
  */
-@WebServlet(urlPatterns = {"/game","/UpdateGame"})
+@WebServlet(urlPatterns = {"/game", "/UpdateGame"})
 public class GameHandler extends HttpServlet {
+
     private ServletContext ctx;
-    
+    private Player[] players;
+    //private UpdateGame ug;
 
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
-        
+        players = new Player[4];
         ctx = getServletContext();
         ctx.setAttribute("player_count", "0");
+
     }
 
-    
-    
-   
-    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -47,25 +46,57 @@ public class GameHandler extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/event-stream;charset=UTF-8");
+        response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
         /* TODO output your page here. You may use following sample code. */
-        
+
         Object obj = request.getSession().getAttribute("player");
-        if (obj == null) {
-            int player_count = Integer.parseInt((String) ctx.getAttribute("player_count"));
-            if (player_count < 4) {
-                obj = ++player_count + "";
-                ctx.setAttribute("player_count", player_count+"");
+        Logger.getGlobal().log(Level.INFO, "obj check GET ====================  {0}", obj);
+        int player_count = Integer.parseInt((String) ctx.getAttribute("player_count"));
+        if (player_count <= 4) {
+            Player player = null;
+            if (obj == null) {
+
+                switch (player_count) {
+                    case 0:
+                        player = new Player(++player_count, 0, 0);
+                        players[0] = player;
+                        break;
+
+                    case 1:
+                        player = new Player(++player_count, 44, 0);
+                        players[1] = player;
+                        break;
+
+                    case 2:
+                        player = new Player(++player_count, 0, 44);
+                        players[2] = player;
+                        break;
+                    case 3:
+                        player = new Player(++player_count, 44, 44);
+                        players[3] = player;
+                        break;
+                    default:
+                        break;
+                }
+
+                player.start();
+                ctx.setAttribute("player_count", player_count + "");
+                request.getSession().setAttribute("player", player);
+            } else {
+                player = (Player) obj;
             }
-            request.getSession().setAttribute("player", String.valueOf(obj));
         }
-        
-        int player = Integer.parseInt((String) obj);
-        String str = "{ \"DOTS\": [ [\"B\", 5, 6], [\"G\", 23, 12], [\"R\", 34, 7], [\"B\", 25, 8], [\"G\", 28, 1], [\"R\", 42, 17],  [\"B\", 15, 36], [\"G\", 22, 22], [\"R\", 5, 37], [\"B\", 25, 28], [\"G\", 9, 39], [\"R\", 10, 21]  ], \"PLAYERS\": [[\"P1\", 8, 0, 1], [\"P2\", 5, 44, 0], [\"P3\", -6, 0, 44], [\"P4\", 10, 44, 44]] }";
-        out.println("data: " + str);
-        out.println();
+//        String str = "{ \"DOTS\": [ [\"B\", 5, 6], [\"G\", 23, 12], [\"R\", 34, 7], [\"B\", 25, 8], [\"G\", 28, 1], [\"R\", 42, 17],  [\"B\", 15, 36], [\"G\", 22, 22], [\"R\", 5, 37], [\"B\", 25, 28], [\"G\", 9, 39], [\"R\", 10, 21]  ], "
+//                + "\"PLAYERS\": [[\"P1\", 8, 0, 1], [\"P2\", 5, 44, 0], [\"P3\", -6, 0, 44], [\"P4\", 10, 44, 44]] }";
+
+       
+        String str = "{ \"DOTS\": [ [\"B\", 5, 6], [\"G\", 23, 12], [\"R\", 34, 7], [\"B\", 25, 8], [\"G\", 28, 1], [\"R\", 42, 17],  [\"B\", 15, 36], [\"G\", 22, 22], [\"R\", 5, 37], [\"B\", 25, 28], [\"G\", 9, 39], [\"R\", 10, 21]  ], "
+                + "\"PLAYERS\": [" + players[0] + ", " + players[1] + ", " + players[2] + ", " + players[3] + "] }";
+//        out.println("data: " + str);
+        out.println(str);
         out.flush();
+
     }
 
     /**
@@ -82,23 +113,61 @@ public class GameHandler extends HttpServlet {
         response.setContentType("text/event-stream;charset=UTF-8");
         PrintWriter out = response.getWriter();
         /* TODO output your page here. You may use following sample code. */
-        
-        
-       // System.out.println("key pressed "+request.getParameter("keypress"));
-        Logger.getGlobal().log(Level.INFO, "key pressed "+request.getParameter("keypress"));
-        
+
+        // System.out.println("key pressed "+request.getParameter("keypress"));
+        Logger.getGlobal().log(Level.INFO, "key pressed {0}", request.getParameter("keypress"));
+
         Object obj = request.getSession().getAttribute("player");
-        if (obj == null) {
-            int player_count = Integer.parseInt((String) ctx.getAttribute("player_count"));
-            if (player_count < 4) {
-                obj = ++player_count + "";
-                ctx.setAttribute("player_count", player_count+"");
+        Logger.getGlobal().log(Level.INFO, "obj check POST ====================  {0}", obj);
+        int player_count = Integer.parseInt((String) ctx.getAttribute("player_count"));
+        if (player_count <= 4) {
+            Player player = null;
+            if (obj == null) {
+
+                switch (player_count) {
+                    case 0:
+                        player = new Player(++player_count, 0, 0);
+                        players[0] = player;
+                        break;
+
+                    case 1:
+                        player = new Player(++player_count, 44, 0);
+                        players[1] = player;
+                        break;
+
+                    case 2:
+                        player = new Player(++player_count, 0, 44);
+                        players[2] = player;
+                        break;
+                    case 3:
+                        player = new Player(++player_count, 44, 44);
+                        players[3] = player;
+                        break;
+                    default:
+                        break;
+                }
+                player.start();
+                ctx.setAttribute("player_count", player_count + "");
+                request.getSession().setAttribute("player", player);
+            } else {
+                player = (Player) obj;
             }
-            request.getSession().setAttribute("player", String.valueOf(obj));
+            synchronized (player) {
+
+                int key = Integer.parseInt(request.getParameter("keypress"));
+                player.currentKey = key;
+                player.notify();
+
+//                ug.notify();
+            }
+//            try {
+//                Thread.sleep(50);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(GameHandler.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+
+            Logger.getGlobal().log(Level.INFO, "position changed.. {0} {1} {2}", new Object[]{player.no, player.posX, player.posY});
         }
-        
-        int player = Integer.parseInt((String) obj);
-        
     }
 
     /**
