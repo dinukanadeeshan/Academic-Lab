@@ -21,7 +21,6 @@ source.onmessage = function (e) {
     response = JSON.parse(e.data);
     document.getElementById("json").insertAdjacentHTML('afterbegin', e.data + '<br/>');
     
-    // paint();
 };
 
 

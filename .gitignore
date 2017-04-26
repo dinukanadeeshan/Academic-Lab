@@ -5,3 +5,20 @@
 *.war
 *.jpg
 *.exe
+/CO324_Network and Web Application Design/ServletLab/Application1/nbproject/private/
+/CO324_Network and Web Application Design/ServletLab/Application1/build/
+/CO324_Network and Web Application Design/ServletLab/Application1/dist/
+/CO324_Network and Web Application Design/ServletLab_04/Address_Book/build/
+/CO324_Network and Web Application Design/ServletLab_04/Address_Book/nbproject/private/
+/CO324_Network and Web Application Design/ServletLab_04/Address_Book_Concurrency/nbproject/private/
+/CO324_Network and Web Application Design/ServletLab_04/Address_Book_Concurrency/dist/
+/CO324_Network and Web Application Design/ServletLab_04/Address_Book_Concurrency/build/
+/CO324_Network and Web Application Design/Lab05/StockTicker/nbproject/private/
+/CO324_Network and Web Application Design/Lab05/StockTicker/build/
+/CO324_Network and Web Application Design/Synchronisation/build/
+/CO324_Network and Web Application Design/Project/PacMan/nbproject/private/
+/CO324_Network and Web Application Design/Project/PacMan/build/
+/CO324_Network and Web Application Design/Project/PacMan/dist/
+/CO324_Network and Web Application Design/Project/PacMan2/nbproject/private/
+/CO324_Network and Web Application Design/Project/PacMan2/build/
+/CO324_Network and Web Application Design/Project/PacMan2/dist/

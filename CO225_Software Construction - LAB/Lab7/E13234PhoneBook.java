@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.BufferedInputStream;
 import java.util.regex.Pattern;
 
-public class PhoneBook{
+public class E13234PhoneBook{
 	
 	public static void main(String[] args) {
 		Map<String, Contact> contactList = new HashMap<>();
