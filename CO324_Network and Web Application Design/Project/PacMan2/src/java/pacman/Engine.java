@@ -36,7 +36,7 @@ public class Engine {
         for (int i = 0; i < count; i++) {
             int x = r.nextInt(43) + 1;
             int y = r.nextInt(43) + 1;
-            
+
             boolean found = false;
             for (int j = 0; j < count; j++) {
                 if (x == xr[j] && y == yr[j]) {
@@ -47,12 +47,11 @@ public class Engine {
             if (!found) {
 
                 //dots.add("[\"" + colors[r.nextInt(3)] + "\"," + x + "," + y + " ]");
-                
                 xr[i] = x;
                 yr[i] = y;
-                
+
                 dots.add(new Dot(colors[r.nextInt(3)], x, y));
-                
+
             }
         }
     }
@@ -64,8 +63,8 @@ public class Engine {
     public Player getPlayer(int index) {
         return players[index];
     }
-    
-    public String getDots(){
+
+    public String getDots() {
         String str = "[";
         int size = dots.size();
         for (int i = 0; i < size; i++) {
@@ -77,4 +76,28 @@ public class Engine {
         str += "]";
         return str;
     }
+
+    public void update(Player player, String key) {
+        player.updatePosition(Integer.parseInt(key));
+        for (int i = 0; i < dots.size(); i++) {
+            Dot dot = dots.get(i);
+            if (dot.x == player.posX && dot.y == player.posY) {
+                switch (dot.color) {
+                    case "B":
+                        player.score += 4;
+                        break;
+
+                    case "G":
+                        player.score += 2;
+                        break;
+
+                    case "R":
+                        player.score += 1;
+                        break;
+                }
+                dots.remove(i);
+            }
+        }
+    }
+
 }

@@ -127,8 +127,8 @@ public class GameHandler extends HttpServlet {
             if (key != null) {
                 synchronized (engine) {
 
-                    player.updatePosition(Integer.parseInt(key));
-
+                    
+                    engine.update(player,key);
 
                     engine.notifyAll();
                     Logger.getGlobal().log(Level.INFO, "Player P{0} position updated ", player.no);
