@@ -27,21 +27,29 @@ public class Player {
             case 37:
                 if (posX > 0) {
                     posX--;
+                }else if (posX == 0) {
+                    posX = 44;
                 }
                 break;
             case 38:
                 if (posY > 0) {
                     posY--;
+                }else if (posY == 0) {
+                    posY = 44;
                 }
                 break;
             case 39:
                 if (posX < 44) {
                     posX++;
+                }else if (posX == 44) {
+                    posX = 0;
                 }
                 break;
             case 40:
                 if (posY < 44) {
                     posY++;
+                }else if (posY == 44) {
+                    posX = 0;
                 }
                 break;
             default:

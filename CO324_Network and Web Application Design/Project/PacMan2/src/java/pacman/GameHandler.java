@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author HP
  */
-@WebServlet(name = "GameHandler", urlPatterns = {"/game","/UpdateGame"})
+@WebServlet(name = "GameHandler", urlPatterns = {"/game", "/UpdateGame", "/reset"})
 public class GameHandler extends HttpServlet {
 
     private ServletContext ctx;
@@ -53,7 +53,7 @@ public class GameHandler extends HttpServlet {
         Object obj = request.getSession().getAttribute("player");
         Logger.getGlobal().log(Level.INFO, "obj check GET ====================  {0}", obj);
         int player_count = Integer.parseInt((String) ctx.getAttribute("player_count"));
-        if (player_count <= 4) {
+        if (player_count < 4) {
             Player player = null;
             if (obj == null) {
 
@@ -81,21 +81,25 @@ public class GameHandler extends HttpServlet {
                 }
                 Logger.getGlobal().log(Level.INFO, "New player joined  P{0} : currently {1} players", new Object[]{player, player_count});
                 ctx.setAttribute("player_count", player_count + "");
-                request.getSession().setAttribute("player", player);
-            } else {
-                player = (Player) obj;
+                request.getSession().setAttribute("player", player.no + "");
+                if (player_count == 4) {
+                    engine.setGame_status(Engine.READY);
+                }
             }
+
             PrintWriter out = response.getWriter();
             while (!Thread.interrupted()) {
-                synchronized (engine) {
-                    String str = "{ \"DOTS\": "+engine.getDots()+", "
-                            + "\"PLAYERS\": [" + engine.getPlayer(0) + ", " + engine.getPlayer(1) + ", " + engine.getPlayer(2) + ", " + engine.getPlayer(3) + "] }";
+                synchronized (this) {
+                    String str = "{ \"DOTS\": " + engine.getDots() + ", "
+                            + "\"PLAYERS\": [" + engine.getPlayer(0) + ", " + engine.getPlayer(1) + ", " + engine.getPlayer(2) + ", " + engine.getPlayer(3) + "],"
+                            + "\"STATUS\": " + engine.getGame_status() + ","
+                            + "\"WINNER\": " + engine.getWinner() + " }";
                     out.println("data: " + str);
                     out.println();
                     out.flush();
                     try {
-                       
-                        engine.wait();
+
+                        wait();
                     } catch (InterruptedException ex) {
                         Logger.getLogger(GameHandler.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -119,22 +123,33 @@ public class GameHandler extends HttpServlet {
             throws ServletException, IOException {
         Object obj = request.getSession().getAttribute("player");
 
-        if (obj != null && obj instanceof Player) {
+        if (obj != null && obj instanceof String) {
 
-            Player player = (Player) obj;
+            String player = (String) obj;
             String key = request.getParameter("keypress");
-            Logger.getGlobal().log(Level.INFO, "Player P{0} pressed {1}", new Object[]{player.no, key});
+            Logger.getGlobal().log(Level.INFO, "Player P{0} pressed {1}", new Object[]{player, key});
             if (key != null) {
-                synchronized (engine) {
+                synchronized (this) {
 
-                    
-                    engine.update(player,key);
+                    engine.update(player, key);
 
-                    engine.notifyAll();
-                    Logger.getGlobal().log(Level.INFO, "Player P{0} position updated ", player.no);
+                    notifyAll();
+                    Logger.getGlobal().log(Level.INFO, "Player P{0} position updated ", player);
                 }
             }
         }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        synchronized (this) {
+            engine = new Engine();
+            notifyAll();
+        }
+        System.gc();
+        Logger.getGlobal().log(Level.INFO, "Game Reset done...");
+
     }
 
     /**

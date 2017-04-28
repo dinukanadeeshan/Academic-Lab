@@ -14,6 +14,13 @@ import java.util.Random;
  */
 public class Engine {
 
+    public  static final int NOT_READY = 0;
+    public  static final int READY = 1;
+    public  static final int GAME_OVER = 2;
+    
+    private int game_status = NOT_READY;
+    private int winner = -1;
+    
     private Player[] players;
     private String[] colors = {"B", "R", "G"};
     private ArrayList<Dot> dots = new ArrayList<>();
@@ -64,6 +71,11 @@ public class Engine {
         return players[index];
     }
 
+    public int getGame_status() {
+        return game_status;
+    }
+
+    
     public String getDots() {
         String str = "[";
         int size = dots.size();
@@ -77,8 +89,16 @@ public class Engine {
         return str;
     }
 
-    public void update(Player player, String key) {
+    public void setGame_status(int game_status) {
+        this.game_status = game_status;
+    }
+
+    
+    
+    public void update(String player_no, String key) {
+        Player player = players[Integer.parseInt(player_no)-1];
         player.updatePosition(Integer.parseInt(key));
+        
         for (int i = 0; i < dots.size(); i++) {
             Dot dot = dots.get(i);
             if (dot.x == player.posX && dot.y == player.posY) {
@@ -98,6 +118,37 @@ public class Engine {
                 dots.remove(i);
             }
         }
+        
+        for (Player p : players) {
+            if (p.no != player.no) {
+                if (p.posX == player.posX && p.posY == player.posY) {
+                    player.score -= 3;
+                    p.score -= 3;
+                }
+            }
+        }
+        
+        if (dots.isEmpty()) {
+            game_status = GAME_OVER;
+            
+            int max = players[0].score;
+            winner = 0;
+            for (int i = 1; i < 4; i++) {
+                if (max < players[i].score) {
+                    max = players[i].score;
+                    winner = i;
+                }
+            }
+        }
     }
+
+    public Player getWinner() {
+        if (winner == -1) {
+            return null;
+        }
+        return players[winner];
+    }
+    
+    
 
 }

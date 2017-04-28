@@ -19,8 +19,13 @@ var source = new EventSource('game');
 source.onmessage = function (e) {
     console.log(e.data);
     response = JSON.parse(e.data);
-    document.getElementById("json").insertAdjacentHTML('afterbegin', e.data + '<br/>');
-    
+    //  document.getElementById("json").insertAdjacentHTML('afterbegin', e.data + '<br/>');
+
+    if (response.STATUS === 2) {
+
+        alert("Game over: Winner is " + response.WINNER[0]);
+    }
+
 };
 
 
@@ -45,6 +50,17 @@ function sendPlayerPosition() {
     }
 }
 
+
+/**
+ * Reset
+ */
+function reset() {
+    var xmlhttprequest = new XMLHttpRequest();
+    
+    //send keystroke to servlet
+    xmlhttprequest.open("DELETE", "reset", true);
+    xmlhttprequest.send();
+}
 
 
 /*Canvas stuff*/
