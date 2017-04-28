@@ -85,6 +85,9 @@ public class GameHandler extends HttpServlet {
                 if (player_count == 4) {
                     engine.setGame_status(Engine.READY);
                 }
+                synchronized (this){
+                    notifyAll();
+                }
             }
 
             PrintWriter out = response.getWriter();
@@ -93,7 +96,8 @@ public class GameHandler extends HttpServlet {
                     String str = "{ \"DOTS\": " + engine.getDots() + ", "
                             + "\"PLAYERS\": [" + engine.getPlayer(0) + ", " + engine.getPlayer(1) + ", " + engine.getPlayer(2) + ", " + engine.getPlayer(3) + "],"
                             + "\"STATUS\": " + engine.getGame_status() + ","
-                            + "\"WINNER\": " + engine.getWinner() + " }";
+                            + "\"WINNER\": " + engine.getWinner() + ","
+                            + "\"PLAYER_COUNT\": "+ctx.getAttribute("player_count")+" }";
                     out.println("data: " + str);
                     out.println();
                     out.flush();
@@ -130,11 +134,12 @@ public class GameHandler extends HttpServlet {
             Logger.getGlobal().log(Level.INFO, "Player P{0} pressed {1}", new Object[]{player, key});
             if (key != null) {
                 synchronized (this) {
-
-                    engine.update(player, key);
+                    if (engine.getGame_status() == Engine.READY) {
+                        engine.update(player, key);
+                    }
 
                     notifyAll();
-                    Logger.getGlobal().log(Level.INFO, "Player P{0} position updated ", player);
+                    
                 }
             }
         }

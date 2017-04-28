@@ -21,6 +21,12 @@ source.onmessage = function (e) {
     response = JSON.parse(e.data);
     //  document.getElementById("json").insertAdjacentHTML('afterbegin', e.data + '<br/>');
 
+    if (response.PLAYER_COUNT !== 4) {
+        $("#game_status").html("<h1>"+response.PLAYER_COUNT+" Payers connected : GAME NOT READY</h1>");
+    }else{
+        $("#game_status").html("<h1>"+response.PLAYER_COUNT+" Payers connected : GAME READY</h1>");
+    }
+
     if (response.STATUS === 2) {
 
         alert("Game over: Winner is " + response.WINNER[0]);

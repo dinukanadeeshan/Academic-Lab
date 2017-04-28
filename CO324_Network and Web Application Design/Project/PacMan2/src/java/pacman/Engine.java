@@ -7,6 +7,8 @@ package pacman;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -98,6 +100,7 @@ public class Engine {
     public void update(String player_no, String key) {
         Player player = players[Integer.parseInt(player_no)-1];
         player.updatePosition(Integer.parseInt(key));
+        Logger.getGlobal().log(Level.INFO, "Player P{0} position updated ", player);
         
         for (int i = 0; i < dots.size(); i++) {
             Dot dot = dots.get(i);
